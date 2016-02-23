@@ -154,3 +154,8 @@ footer{
 	width: 10em;  height: 2em;
 }
 
+.session{
+  font-size: 28px;
+  font-family: "Times New Roman", Times, serif;
+  float: right;
+}

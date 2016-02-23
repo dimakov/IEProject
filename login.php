@@ -1,12 +1,15 @@
 <?php
 
+session_start();
+
 $host = "localhost";
 $db_user = "root";
 $db_pass = "";
 $db = "ieproj";
 
-mysql_connect($host, $db_user, $db_pass);
-mysql_select_db($db);
+$con = @mysql_connect($host, $db_user, $db_pass);
+if (!$con) die("Could not connect to the server!"); 
+if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
 
 if(isset($_POST['submit']))
 {
@@ -16,8 +19,9 @@ if(isset($_POST['submit']))
 	$res = mysql_query($sql);
 	if (mysql_num_rows($res) == 1)
 	{
-		echo "OK";
-		exit();
+		$_SESSION['curruser']=$username;
+		header("Location: index.php"); 
+    	exit();
 	}
 	else
 	{
