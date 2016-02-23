@@ -1,0 +1,156 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+*
+{
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+	background-image: url(backg.png);
+    height: 100%;
+}
+
+header
+{
+    padding: 35px;
+    border-radius: 10px;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #304D8A 68%, #4576D1 100%);
+}
+
+.main
+{
+    float: left;
+    text-align: center;
+    width: 75%;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+
+
+nav ul
+{
+    float: right;
+    overflow: auto;
+
+    width: 25%;
+    margin: 20px 0 0 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    background-color: #0675D1;
+    border-radius: 15px;
+}
+
+nav li a
+{
+    font-size: 40px;
+
+    display: block;
+
+    padding: 16px 0 16px 24px;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: #39B4D7;
+
+    border-radius: 25px;
+}
+
+nav li a.active
+{
+    color: white;
+    background-color: #112EA7;
+}
+
+nav li a:hover:not(.active)
+{
+    color: white;
+    background-color: #0B33D5;
+}
+
+footer{
+	background-color: #0B3355;
+	position: fixed;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+.login-page {
+  width: 360px;
+  margin: 50px 25%; 
+}
+
+.form {
+  position: center;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  font-size: 14px;
+}
+.form #submit_button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form #submit_button:hover,.form #submit_button:active,.form #submit_button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+
+.applic_opts{
+	font-size: 23px;
+	font-family: "Times New Roman", Times, serif;
+	padding: 5px;
+	color: white;
+}
+
+#newstud_submit_form{
+	font-size: 16px;
+	margin: 7px;
+	position: center;
+	width: 10em;  height: 2em;
+}
+
