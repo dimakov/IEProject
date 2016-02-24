@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +12,29 @@
 <body>
   <header>
     <a href="http://int.technion.ac.il"><img src="../logo.png" alt="Technion logo"></a>
+    <div class="session">
+    <?php
+    if (isset($_SESSION['curruser']))
+    {
+      echo "".$_SESSION['curruser']." רשום כ ";
+      echo '<br>';
+      echo '<a href="../logout.php">יציאה</a>';
+    }
+    else
+    {
+      echo "נא הירשם למערכת";
+    }
+    ?>
+    </div>
   </header>
   <nav>
     <ul>
-      <li><a href="../index.html" title="">כניסת משתמש</a></li>
+      <li><a href="../index.php" >כניסת משתמש</a></li>
       <li><a class="active">הוספת סטודנט חדש</a></li>
-      <li><a href="../reports/reports.html" title="">הפקדת דוח"ות</a></li>
-      <li><a href="/newstud/newstud.html" title="">הוספת סטודנט חדש</a></li>
-      <li><a href="/newstud/newstud.html" title="">הוספת סטודנט חדש</a></li>
-      <li><a href="../newacc/newacc.html" title="">רישום משתמש חדש</a></li>
+      <li><a href="../reports/reports.php" >הפקדת דוח"ות</a></li>
+      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
   <div class="main">
@@ -315,6 +333,7 @@
       <input type="radio" name="grad_stud" value="No"> No<br>
 
       <input id="newstud_submit_form" type="submit" value="Submit">
+      <input id="submit_button" name="submit" value="כניסה" type="submit">
     </form>
   </div>
   <footer>

@@ -29,17 +29,16 @@ session_start();
   </header>
   <nav>
     <ul>
-      <li><a href="../index.php" >כניסת משתמש</a></li>
+      <li><a href="../index.php">כניסת משתמש</a></li>
       <li><a href="../newstud/newstud.php" >הוספת סטודנט חדש</a></li>
-      <li><a class="active">הפקדת דוח"ות</a></li>
+      <li><a href="../reports/reports.php" >הפקדת דוח"ות</a></li>
       <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
       <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
-      <li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
+      <li><a class="active" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
-  <div class="main">
-    <h1>The City</h1>
-    <p>Here you can add new student to database</p>
+  <div class="login-page">
+    <h1>Hello</h1>
   </div>
   <footer>
     כל הזכויות שמורות 

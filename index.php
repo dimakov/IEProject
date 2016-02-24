@@ -30,20 +30,19 @@ session_start();
   <nav>
     <ul>
       <li><a class="active">כניסת משתמש</a></li>
-      <li><a href="newstud/newstud.html" title="">הוספת סטודנט חדש</a></li>
-      <li><a href="reports/reports.php" title="">הפקדת דוח"ות</a></li>
-      <li><a href="/newstud/newstud.html" title="">הוספת סטודנט חדש</a></li>
-      <li><a href="/newstud/newstud.html" title="">הוספת סטודנט חדש</a></li>
-      <li><a href="newacc/newacc.html" title="">רישום משתמש חדש</a></li>
+      <li><a href="newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <li><a href="reports/reports.php" >הפקדת דוח"ות</a></li>
+      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <li><a href="newacc/newacc.php" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
   <div class="login-page">
     <div class="form">
       <form class="login-form" action="login.php" method="POST">
-        <input type="text" name="username" autofocus="" placeholder="Username"/>
-        <input type="password" name="password" placeholder="Password"/>
-        <input id="submit_button" name="submit" value="Login" type="submit">
-        <p class="message" style="font-size: 16px;">Not registered? <a href="newacc/newacc.html">Create an account</a></p>
+        <input style="text-align:right;" type="text" name="username" autofocus="" placeholder="שם משתמש"/>
+        <input style="text-align:right;" type="password" name="password" placeholder="סיסמא"/>
+        <input id="submit_button" name="submit" value="כניסה" type="submit">
       </form>
     </div>
   </div>
