@@ -12,6 +12,9 @@ session_start();
 <body>
   <header>
     <a href="http://int.technion.ac.il"><img src="../logo.png" alt="Technion logo"></a>
+    <div id="index_description">
+      מערכת לחיזוי הצלחת מועמדים
+    </div>
     <div class="session">
     <?php
     if (isset($_SESSION['curruser']))
@@ -32,8 +35,8 @@ session_start();
       <li><a href="../index.php" >כניסת משתמש</a></li>
       <li><a href="../newstud/newstud.php" >הוספת סטודנט חדש</a></li>
       <li><a class="active">הפקדת דוח"ות</a></li>
-      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
-      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <!-- <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
       <li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
