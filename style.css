@@ -8,7 +8,9 @@
 html,
 body
 {
-	background-image: url(backg.png);
+	  background-image: url(backg.png);
+    background-repeat:no-repeat;
+    background-size:cover;
     height: 100%;
 }
 
@@ -25,8 +27,7 @@ header
     float: left;
     text-align: center;
     width: 75%;
-    padding: 15px;
-    margin-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 
@@ -74,14 +75,16 @@ nav li a:hover:not(.active)
 }
 
 footer{
+  display: block;
 	background-color: #0B3355;
 	position: fixed;
     bottom: 0;
     height: 40px;
     width: 100%;
     font-size: 30px;
-    color: white;
+    color: orange;
     text-align: center;
+    opacity: 0.75;
 }
 
 .login-page {
@@ -146,11 +149,13 @@ footer{
 	color: white;
 }
 
-#newstud_submit_form{
-	font-size: 16px;
-	margin: 7px;
-	position: center;
-	width: 10em;  height: 2em;
+#newstud_form{
+  display: flex;
+  justify-content: space-around;
+}
+
+#newstud_submit_button{
+  text-align: center;
 }
 
 .session{
