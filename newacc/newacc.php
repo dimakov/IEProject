@@ -16,18 +16,18 @@ session_start();
       מערכת לחיזוי הצלחת מועמדים
     </div>
     <div class="session">
-    <?php
-    if (isset($_SESSION['curruser']))
-    {
-      echo "".$_SESSION['curruser']." רשום כ ";
-      echo '<br>';
-      echo '<a href="../logout.php">יציאה</a>';
-    }
-    else
-    {
-      echo "נא הירשם למערכת";
-    }
-    ?>
+      <?php
+      if (isset($_SESSION['curruser']))
+      {
+        echo "".$_SESSION['curruser']." רשום כ ";
+        echo '<br>';
+        echo '<a href="../logout.php">יציאה</a>';
+      }
+      else
+      {
+        echo "נא הירשם למערכת";
+      }
+      ?>
     </div>
   </header>
   <nav>
@@ -40,9 +40,20 @@ session_start();
       <li><a class="active" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
-  <div class="main">
-    <h1>Here you can add new user</h1>
-  </div>
+  <?php
+  if (isset($_SESSION['curruser']))
+  {
+    ?>
+    <div class="main">
+      <h1>Here you can add new user</h1>
+    </div>
+    <?php 
+  } else {
+    ?>
+    <div class="loggedout">נא הירשם למערכת</div>
+    <?php
+  }
+  ?>
   <footer>
     כל הזכויות שמורות 
   </footer>

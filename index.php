@@ -16,18 +16,18 @@ session_start();
       מערכת לחיזוי הצלחת מועמדים
     </div>
     <div class="session">
-    <?php
-    if (isset($_SESSION['curruser']))
-    {
-      echo "".$_SESSION['curruser']." רשום כ ";
-      echo '<br>';
-      echo '<a href="../logout.php">יציאה</a>';
-    }
-    else
-    {
-      echo "נא הירשם למערכת";
-    }
-    ?>
+      <?php
+      if (isset($_SESSION['curruser']))
+      {
+        echo "".$_SESSION['curruser']." רשום כ ";
+        echo '<br>';
+        echo '<a href="../logout.php">יציאה</a>';
+      }
+      else
+      {
+        echo "נא הירשם למערכת";
+      }
+      ?>
     </div>
   </header>
   <nav>
@@ -40,15 +40,27 @@ session_start();
       <li><a href="newacc/newacc.php" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
-  <div class="login-page">
-    <div class="form">
-      <form class="login-form" action="login.php" method="POST">
-        <input style="text-align:right;" type="text" name="username" autofocus="" placeholder="שם משתמש"/>
-        <input style="text-align:right;" type="password" name="password" placeholder="סיסמא"/>
-        <input id="submit_button" name="submit" value="כניסה" type="submit">
-      </form>
+  <?php
+  if (!isset($_SESSION['curruser']))
+  {
+    ?>
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form" action="login.php" method="POST">
+          <input style="text-align:right;" type="text" name="username" autofocus="" placeholder="שם משתמש"/>
+          <input style="text-align:right;" type="password" name="password" placeholder="סיסמא"/>
+          <input id="submit_button" name="submit" value="כניסה" type="submit">
+        </form>
+      </div>
     </div>
-  </div>
+    <?php 
+  } 
+  else 
+  {
+    echo '<div class="loggedout">'.$_SESSION['curruser'].' רשום כ </div>';
+    echo '<div id="loggedout_exit"><a href="../logout.php">יציאה</a></div>';
+  }
+  ?>
   <footer>
     כל הזכויות שמורות 
   </footer>

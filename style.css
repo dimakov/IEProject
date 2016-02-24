@@ -183,3 +183,20 @@ footer{
   font-family: "Times New Roman", Times, serif;
   float: right;
 }
+
+.loggedout{
+  margin: 0;
+  font-size: 50px;
+  color: green;
+  padding: 10% 30%;
+}
+
+#loggedout_exit{
+  font-size: 50px;
+  color: yellow;
+  padding: 0 34%;
+}
+
+#loggedout_exit:hover{
+  font-size: 50px;
+}
