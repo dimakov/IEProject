@@ -41,8 +41,7 @@ session_start();
     </ul>
   </nav>
   <div class="main">
-    <h1>The City</h1>
-    <p>Here you can add new student to database</p>
+    <h1>Here will be repots section</h1>
   </div>
   <footer>
     כל הזכויות שמורות 

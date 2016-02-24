@@ -40,8 +40,8 @@ session_start();
       <li><a class="active" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
-  <div class="login-page">
-    <h1>Hello</h1>
+  <div class="main">
+    <h1>Here you can add new user</h1>
   </div>
   <footer>
     כל הזכויות שמורות 
