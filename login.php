@@ -26,6 +26,7 @@ if(isset($_POST['submit']))
 	else
 	{
 		echo "Invalid password";
+		header("Location: index.php");
 		exit();
 	}
 }

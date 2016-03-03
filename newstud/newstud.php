@@ -1,5 +1,8 @@
 <?php
 session_start();
+$con = @mysql_connect('localhost','root','');
+if (!$con) die("Could not connect to the server!"); 
+if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +48,13 @@ if (isset($_SESSION['curruser']))
 {
     ?>
     <div id="new_stud_main">
-        <form id="newstud_form" action="action_page.php">
+        <form id="newstud_form" action="<?php $_SERVER['PHP_SELF']?>" method="POST">
           <div id="newstud_first_sec">
               <div class="applic_opts">Applicant ID:</div>
               <input type="number" name="ID" autofocus="" min="1" required>
 
               <div class="applic_opts">Application date:</div>
-              <input type="date" data-date-inline-picker="true" required>
+              <input type="date" name="date" data-date-inline-picker="true" required>
 
               <div class="applic_opts">Country:</div>
               <select name="country" required>
@@ -325,24 +328,158 @@ if (isset($_SESSION['curruser']))
           <input type="number" name="uni_grade" placeholder="0-100" min="0" max="100" required>
 
           <div class="applic_opts">Success:</div>
-          <input type="radio" name="success" value="Yes" checked> Yes
-          <input type="radio" name="success" value="No"> No
+          <input type="radio" name="success" value="TRUE" checked> Yes
+          <input type="radio" name="success" value="FALSE"> No
 
           <div class="applic_opts">Applicant:</div>
-          <input type="radio" name="applicant" value="Yes" checked> Yes
-          <input type="radio" name="applicant" value="No"> No<br>
+          <input type="radio" name="applicant" value="TRUE" checked> Yes
+          <input type="radio" name="applicant" value="FALSE"> No<br>
 
           <div class="applic_opts">Student:</div>
-          <input type="radio" name="student" value="Yes" checked> Yes
-          <input type="radio" name="student" value="No"> No<br>
+          <input type="radio" name="student" value="TRUE" checked> Yes
+          <input type="radio" name="student" value="FALSE"> No<br>
 
           <div class="applic_opts">Graduate Student:</div>
-          <input type="radio" name="grad_stud" value="Yes" checked> Yes
-          <input type="radio" name="grad_stud" value="No"> No<br>
+          <input type="radio" name="grad_stud" value="TRUE" checked> Yes
+          <input type="radio" name="grad_stud" value="FALSE"> No<br>
       </div>
   </form>
   <div id="newstud_submit_button">
     <input style="font-size: 30px;" name="submit" value="הכנס סטודנט" type="submit" form="newstud_form">
+<?php
+if (isset($_POST["submit"])) 
+{
+    $ID='';
+    $date='';
+    $country='';
+    $city='';
+    $district='';
+    $school='';
+    $grade_ar='';
+    $age='';
+    $uni_grade='';
+    $success='';
+    $applicant='';
+    $student='';
+    $grad_stud='';
+    if (!isset($_POST["ID"]))
+        {
+            echo "<h3>No ID entererd. Please enter ID of the student.</h3><br>";
+        }
+    else
+        {
+            $ID=$_POST["ID"];
+        }
+    if (!isset($_POST["date"]))
+        {
+            echo "<h3>No date entererd. Please enter date.</h3><br>";
+        }
+    else
+        {
+            $date=$_POST["date"];
+        }
+    if (!isset($_POST["country"]))
+        {
+            echo "<h3>No country entererd. Please enter country.</h3><br>";
+        }
+    else
+        {
+            $country=$_POST["country"];
+        }
+    if (!isset($_POST["city"]))
+        {
+            echo "<h3>No city entererd. Please enter city.</h3><br>";
+        }
+    else
+        {
+            $city=$_POST["city"];
+        }
+    if (!isset($_POST["district"]))
+        {
+            echo "<h3>No district entererd. Please enter district.</h3><br>";
+        }
+    else
+        {
+            $district=$_POST["district"];
+        }
+    if (!isset($_POST["school"]))
+        {
+            echo "<h3>No school entererd. Please enter school.</h3><br>";
+        }
+    else
+        {
+            $school=$_POST["school"];
+        }
+    if (!isset($_POST["grade_ar"]))
+        {
+            echo "<h3>No grade_ar entererd. Please enter grade_ar.</h3><br>";
+        }
+    else
+        {
+            $grade_ar=$_POST["grade_ar"];
+        }
+    if (!isset($_POST["age"]))
+        {
+            echo "<h3>No age entererd. Please enter age.</h3><br>";
+        }
+    else
+        {
+            $age=$_POST["age"];
+        }
+    if (!isset($_POST["uni_grade"]))
+        {
+            echo "<h3>No uni_grade entererd. Please enter uni_grade.</h3><br>";
+        }
+    else
+        {
+            $uni_grade=$_POST["uni_grade"];
+        }
+    if (!isset($_POST["success"]))
+        {
+            echo "<h3>No success entererd. Please enter success.</h3><br>";
+        }
+    else
+        {
+            $success=$_POST["success"];
+        }
+    if (!isset($_POST["applicant"]))
+        {
+            echo "<h3>No applicant entererd. Please enter applicant.</h3><br>";
+        }
+    else
+        {
+            $applicant=$_POST["applicant"];
+        }
+    if (!isset($_POST["student"]))
+        {
+            echo "<h3>No student entererd. Please enter student.</h3><br>";
+        }
+    else
+        {
+            $student=$_POST["student"];
+        }
+    if (!isset($_POST["grad_stud"]))
+        {
+            echo "<h3>No grad_stud entererd. Please enter grad_stud.</h3><br>";
+        }
+    else
+        {
+            $grad_stud=$_POST["grad_stud"];
+        }
+
+    $sql="INSERT INTO students(ID,ApplicDate,Country,City,District,School,GradeAR,Age,UniGrade,Success,Applicant,Student,GradStud) 
+        VALUES(".$ID.",'".$date."','".$country."','".$city."','".$district."','".$school."',".$grade_ar.",".$age.",".$uni_grade.",".$success.",".$applicant.",".$student.",".$grad_stud.");";
+        $result=mysql_query($sql);
+        if (!$result)
+        {
+            die("<br><font color='red'> Couldn't add this Service Call to the data base.</font><br>".mysql_error());
+        }
+        else
+        {
+            echo "<h3><font color='green'>Successfuly added to the database.</font></h3>";
+        }
+}
+?>
 </div>
 </div>
 <?php 

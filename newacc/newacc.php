@@ -44,7 +44,7 @@ session_start();
     </ul>
   </nav>
   <?php
-  if (!isset($_SESSION['curruser']))
+  if (isset($_SESSION['curruser']))
   {
     ?>
     <div class="main">
