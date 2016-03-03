@@ -52,9 +52,8 @@ if (isset($_SESSION['curruser']))
           <div id="newstud_first_sec">
               <div class="applic_opts">Applicant ID:</div>
               <input type="number" name="ID" autofocus="" min="1" required>
-
               <div class="applic_opts">Application date:</div>
-              <input type="date" name="date" data-date-inline-picker="true" required>
+              <input name="date" type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" required="" placeholder="dd/mm/yyyy">
 
               <div class="applic_opts">Country:</div>
               <select name="country" required>
@@ -376,7 +375,8 @@ if (isset($_POST["submit"]))
         }
     else
         {
-            $date=$_POST["date"];
+            $date1 = str_replace("/", "-", $_POST["date"]);
+            $date = date('Y-m-d', strtotime($date1));
         }
     if (!isset($_POST["country"]))
         {

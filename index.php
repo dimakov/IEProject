@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+$host = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db = "ieproj";
+
+$con = @mysql_connect($host, $db_user, $db_pass);
+if (!$con) die("Could not connect to the server!"); 
+if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +55,28 @@ session_start();
     ?>
     <div class="login-page">
       <div class="form">
-        <form class="login-form" action="login.php" method="POST">
+        <form class="login-form" action="<?php $_SERVER['PHP_SELF']?>" method="POST">
           <input style="text-align:right;" type="text" name="username" autofocus="" placeholder="שם משתמש"/>
           <input style="text-align:right;" type="password" name="password" placeholder="סיסמא"/>
           <input id="submit_button" name="submit" value="כניסה" type="submit">
         </form>
+        <?php
+        if(isset($_POST['submit']))
+        {
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."' LIMIT 1";
+          $res = mysql_query($sql);
+          if (mysql_num_rows($res) == 1)
+          {
+            $_SESSION['curruser']=$username;
+          }
+          else
+          {
+            echo "Invalid password";
+          }
+        }
+        ?>
       </div>
     </div>
     <?php 
