@@ -327,20 +327,20 @@ if (isset($_SESSION['curruser']))
           <input type="number" name="uni_grade" placeholder="0-100" min="0" max="100" required>
 
           <div class="applic_opts">Success:</div>
-          <input type="radio" name="success" value="TRUE" checked> Yes
-          <input type="radio" name="success" value="FALSE"> No
+          <input type="radio" name="success" value="TRUE"> Yes
+          <input type="radio" name="success" value="FALSE" checked> No
 
           <div class="applic_opts">Applicant:</div>
-          <input type="radio" name="applicant" value="TRUE" checked> Yes
-          <input type="radio" name="applicant" value="FALSE"> No<br>
+          <input type="radio" name="applicant" value="TRUE"> Yes
+          <input type="radio" name="applicant" value="FALSE" checked> No<br>
 
           <div class="applic_opts">Student:</div>
-          <input type="radio" name="student" value="TRUE" checked> Yes
-          <input type="radio" name="student" value="FALSE"> No<br>
+          <input type="radio" name="student" value="TRUE"> Yes
+          <input type="radio" name="student" value="FALSE" checked> No<br>
 
           <div class="applic_opts">Graduate Student:</div>
-          <input type="radio" name="grad_stud" value="TRUE" checked> Yes
-          <input type="radio" name="grad_stud" value="FALSE"> No<br>
+          <input type="radio" name="grad_stud" value="TRUE"> Yes
+          <input type="radio" name="grad_stud" value="FALSE" checked> No<br>
       </div>
   </form>
   <div id="newstud_submit_button">

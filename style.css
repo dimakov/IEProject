@@ -91,6 +91,16 @@ footer{
     opacity: 0.75;
 }
 
+table
+{
+font-family: "comic sans ms"; 
+margin-left: 10pt; 
+color: black; 
+text-align: left; 
+word-spacing: normal;
+border: 1px solid black;
+}
+
 #index_description{
   display: inline-block;
   position: relative;
@@ -199,4 +209,53 @@ footer{
 
 #loggedout_exit:hover{
   font-size: 50px;
+}
+
+#update_main{
+  display: flex;
+}
+
+#update_student{
+  margin: 0 auto;
+  padding: 30px;
+  color: greenyellow;
+}
+
+#update_pretendents{
+  margin: 0 auto;
+  padding: 30px;
+  padding-left: 0px;
+}
+
+#update_ID_search{
+  margin-left: 20px;
+}
+
+#update_ID_search_button{
+  margin-left: 30px;
+}
+
+#update_preten_button{
+  margin-left: 60px;
+}
+
+#update_first_half{
+  float: left;
+  padding-left: 5%;
+  padding-top: 20px;
+}
+
+#update_second_half{
+  padding-left: 40%;
+  padding-top: 20px;
+}
+
+#update_make_update{
+  margin-top: 70px;
+}
+
+td {
+    color: #335190;
+    text-align: left;
+    background: #7fd2fb;
 }

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$_SESSION['stud_ID_glob'] = 0;
+
 $host = "localhost";
 $db_user = "root";
 $db_pass = "";
