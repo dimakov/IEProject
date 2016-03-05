@@ -33,10 +33,10 @@ session_start();
 	<nav>
 		<ul>
 			<li><a href="../index.php" >כניסת משתמש</a></li>
-			<li><a href="../newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+			<li><a href="../newstud/newstud.php" >הוספת מועמד</a></li>
 			<li><a class="active">הפקדת דוח"ות</a></li>
-      <!-- <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
-      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
+      		<li><a href="../update/update.php" >עדכון מסד נתונים</a></li>
+      <!--<li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
       <li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
   </ul>
 </nav>

@@ -42,10 +42,10 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
   <nav>
     <ul>
       <li><a class="active">כניסת משתמש</a></li>
-      <li><a href="newstud/newstud.php" >הוספת סטודנט חדש</a></li>
+      <li><a href="newstud/newstud.php" >הוספת מועמד</a></li>
       <li><a href="reports/reports.php" >הפקדת דוח"ות</a></li>
-      <!-- <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li>
-      <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
+      <li><a href="update/update.php" >עדכון מסד נתונים</a></li>
+      <!--<li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
       <li><a href="newacc/newacc.php" >רישום משתמש חדש</a></li>
     </ul>
   </nav>
