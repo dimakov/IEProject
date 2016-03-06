@@ -64,7 +64,6 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
             $result = mysql_query($sql);
             if(mysql_num_rows($result) > 0)
             {                  
-                  //echo "<tr><td>$row1[0]</td><td>$row1[1]</td><td>$row1[2]</td><td>$row1[3]</td><td>$row1[4]</td><td>$row1[5]</td></tr>";
               $stud_array = mysql_fetch_array($result);
               echo "<table>";
               echo "<br><th colspan='13' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
@@ -74,8 +73,6 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
               $stud_array[11] ? $stud_array[11]='Yes' : $stud_array[11]='No';
               $stud_array[12] ? $stud_array[12]='Yes' : $stud_array[12]='No';
               echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[2]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td>".$stud_array[10]."</td><td>".$stud_array[11]."</td><td>".$stud_array[12]."</td></tr>";
-                  //echo "<tr><td>$row1[0]</td><td>$row1[1]</td><td>$row1[2]</td><td>$row1[3]</td><td>$row1[4]</td><td>$row1[5]</td></tr>";
-
               echo "</table>";
 
               ?>

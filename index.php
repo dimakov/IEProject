@@ -39,6 +39,23 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
         echo "נא הירשם למערכת";
       }
       ?>
+      <?php
+      if(isset($_POST['submit']))
+      {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."' LIMIT 1";
+        $res = mysql_query($sql);
+        if (mysql_num_rows($res) == 1)
+        {
+          $_SESSION['curruser']=$username;
+        }
+        else
+        {
+          echo "Invalid password";
+        }
+      }
+      ?>
     </div>
   </header>
   <nav>
@@ -62,23 +79,6 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
           <input style="text-align:right;" type="password" name="password" placeholder="סיסמא"/>
           <input id="submit_button" name="submit" value="כניסה" type="submit">
         </form>
-        <?php
-        if(isset($_POST['submit']))
-        {
-          $username = $_POST['username'];
-          $password = $_POST['password'];
-          $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."' LIMIT 1";
-          $res = mysql_query($sql);
-          if (mysql_num_rows($res) == 1)
-          {
-            $_SESSION['curruser']=$username;
-          }
-          else
-          {
-            echo "Invalid password";
-          }
-        }
-        ?>
       </div>
     </div>
     <?php 
