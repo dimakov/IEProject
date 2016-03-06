@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-$con = @mysql_connect('localhost','root','');
+$host = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db = "ieproj";
+
+$con = @mysql_connect($host, $db_user, $db_pass);
 if (!$con) die("Could not connect to the server!"); 
-if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
+if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +16,7 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
   <title>בית ספר בינלאומי</title>
 </head>
 <body>
@@ -383,205 +389,229 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
           }
         }
         ?>
-              <?php
-              if (isset($_POST["update_make_update"])) 
-              {
-                $ID='';
-                $date='';
-                $country='';
-                $city='';
-                $district='';
-                $school='';
-                $grade_ar='';
-                $age='';
-                $uni_grade='';
-                $success='';
-                $applicant='';
-                $student='';
-                $grad_stud='';
-                if (!empty($_POST["ID"]))
-                {
-                  $sql="UPDATE students SET ID=".$_POST["ID"]." WHERE ID=".$_SESSION["stud_ID_glob"].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add ID to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated ID";
-                  }
-                }
-                if (!empty($_POST["date"]))
-                {
-                  $date1 = str_replace("/", "-", $_POST["date"]);
-                  $date = date('Y-m-d', strtotime($date1));
-                  $sql="UPDATE students SET ApplicDate='$date' WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add Date to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated date";
-                  }
-                }
-                if (!empty($_POST["country"]))
-                {
-                  $temp = $_POST["country"];
-                  $sql="UPDATE students SET Country='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add Country to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated country";
-                  }
-                }
-                if (!empty($_POST["city"]))
-                {
-                  $temp=$_POST['city'];
-                  $sql="UPDATE students SET City='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add City to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated city";
-                  }
-                }
-                if (!empty($_POST["district"]))
-                {
-                  $temp=$_POST['district'];
-                  $sql="UPDATE students SET District='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add district to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated district";
-                  }
-                }
-                if (!empty($_POST["school"]))
-                {
-                  $temp = $_POST['school'];
-                  $sql="UPDATE students SET School='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add school to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated school";
-                  }
-                }
-                if (!empty($_POST["grade_ar"]))
-                {
-                  $sql="UPDATE students SET GradeAR=".$_POST["grade_ar"]." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add grade AR to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated grade AR";
-                  }
-                }
-                if (!empty($_POST["age"]))
-                {
-                  $sql="UPDATE students SET Age=".$_POST['age']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add age to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated age";
-                  }
-                }
-                if (!empty($_POST["uni_grade"]))
-                {
-                  $sql="UPDATE students SET UniGrade=".$_POST['uni_grade']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add uni grade to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated university grade";
-                  }
-                }
-                if (!empty($_POST["success"]))
-                {
-                  $sql="UPDATE students SET Success=".$_POST['success']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add success to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated success";
-                  }
-                }
-                if (!empty($_POST["applicant"]))
-                {
-                  $sql="UPDATE students SET Applicant=".$_POST['applicant']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add applicant to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated applicant";
-                  }
-                }
-                if (!empty($_POST["student"]))
-                {
-                  $sql="UPDATE students SET Student=".$_POST['student']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add student to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated student";
-                  }
-                }
-                if (!empty($_POST["grad_stud"]))
-                {
-                  $sql="UPDATE students SET GradStud=".$_POST['grad_stud']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-                  $result=mysql_query($sql);
-                  if (!$result)
-                  {
-                    die("Couldn't add grad student to the data base.<br>".mysql_error());
-                  }
-                  else
-                  {
-                    echo "<br>Updated graduate student";
-                  }
-                }
-              }
-              ?>
-              
+        <?php
+        if (isset($_POST["update_make_update"])) 
+        {
+          $ID='';
+          $date='';
+          $country='';
+          $city='';
+          $district='';
+          $school='';
+          $grade_ar='';
+          $age='';
+          $uni_grade='';
+          $success='';
+          $applicant='';
+          $student='';
+          $grad_stud='';
+          if (!empty($_POST["ID"]))
+          {
+            $sql="UPDATE students SET ID=".$_POST["ID"]." WHERE ID=".$_SESSION["stud_ID_glob"].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add ID to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated ID";
+            }
+          }
+          if (!empty($_POST["date"]))
+          {
+            $date1 = str_replace("/", "-", $_POST["date"]);
+            $date = date('Y-m-d', strtotime($date1));
+            $sql="UPDATE students SET ApplicDate='$date' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add Date to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated date";
+            }
+          }
+          if (!empty($_POST["country"]))
+          {
+            $temp = $_POST["country"];
+            $sql="UPDATE students SET Country='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add Country to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated country";
+            }
+          }
+          if (!empty($_POST["city"]))
+          {
+            $temp=$_POST['city'];
+            $sql="UPDATE students SET City='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add City to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated city";
+            }
+          }
+          if (!empty($_POST["district"]))
+          {
+            $temp=$_POST['district'];
+            $sql="UPDATE students SET District='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add district to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated district";
+            }
+          }
+          if (!empty($_POST["school"]))
+          {
+            $temp = $_POST['school'];
+            $sql="UPDATE students SET School='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add school to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated school";
+            }
+          }
+          if (!empty($_POST["grade_ar"]))
+          {
+            $sql="UPDATE students SET GradeAR=".$_POST["grade_ar"]." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add grade AR to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated grade AR";
+            }
+          }
+          if (!empty($_POST["age"]))
+          {
+            $sql="UPDATE students SET Age=".$_POST['age']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add age to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated age";
+            }
+          }
+          if (!empty($_POST["uni_grade"]))
+          {
+            $sql="UPDATE students SET UniGrade=".$_POST['uni_grade']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add uni grade to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated university grade";
+            }
+          }
+          if (!empty($_POST["success"]))
+          {
+            $sql="UPDATE students SET Success=".$_POST['success']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add success to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated success";
+            }
+          }
+          if (!empty($_POST["applicant"]))
+          {
+            $sql="UPDATE students SET Applicant=".$_POST['applicant']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add applicant to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated applicant";
+            }
+          }
+          if (!empty($_POST["student"]))
+          {
+            $sql="UPDATE students SET Student=".$_POST['student']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add student to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated student";
+            }
+          }
+          if (!empty($_POST["grad_stud"]))
+          {
+            $sql="UPDATE students SET GradStud=".$_POST['grad_stud']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+            $result=mysql_query($sql);
+            if (!$result)
+            {
+              die("Couldn't add grad student to the data base.<br>".mysql_error());
+            }
+            else
+            {
+              echo "<br>Updated graduate student";
+            }
+          }
+        }
+        ?>
+
       </div>
 
       <div id="update_pretendents">
         <h1>עדכן את כל המועמדים</h1>
-        <input type="submit" id="update_preten_button" value="עדכן מועמדים" id="update_pret_sub" class="button"/>
+        <form id="update_form" action="<?php $_SERVER['PHP_SELF']?>" method="POST">
+          <input type="submit" id="update_preten_button" value="עדכן מועמדים" name="update_preten_button" class="button"/>
+        </form>
+        <?php
+        if (isset($_POST["update_preten_button"])) 
+        {
+          $sql = "SELECT * FROM students WHERE Applicant = 1;";
+          $result = mysql_query($sql);
+          if(mysql_num_rows($result) > 0)
+          {                  
+            echo "<table>";
+            echo "<br><th colspan='13' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
+            echo "<tr><td>ID</td><td>Date</td><td>Country</td><td>City</td><td>District</td><td>School</td><td>Grade AR</td><td>Age</td><td>University</td><td>Success</td><td>Applicant</td><td>Student</td><td>Graduate Student</td></tr>";
+            while ($stud_array = mysql_fetch_array($result))
+            {
+              $stud_array[9] ? $stud_array[9]='Yes' : $stud_array[9]='No';
+              $stud_array[10] ? $stud_array[10]='Add' : $stud_array[10]='Remove';
+              $stud_array[11] ? $stud_array[11]='Yes' : $stud_array[11]='No';
+              $stud_array[12] ? $stud_array[12]='Yes' : $stud_array[12]='No';
+              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[2]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td><input type='button' id='change-".$stud_array[0]."' value='".$stud_array[10]."' class='onButton' onclick=FnBookmark(".$stud_array[0].",'Add')></input></td><td>".$stud_array[11]."</td><td>".$stud_array[12]."</td></tr>";
+            }
+            echo "</table>";
+          }
+        }
+        ?>
       </div>
     </div>
     <?php 
@@ -594,5 +624,36 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
   <footer>
     כל הזכויות שמורות 
   </footer>
+  <script>
+    function FnBookmark(id,mode){
+      // var temp = '"#' + id + '"';
+      var temp = "#change-" + id + "";
+      var temp2 = "FnBookmark("+id+",'Remove')";
+      var temp3 = "FnBookmark("+id+",'Add')";
+      var temp4 = 1;
+      if (mode == 'Add')
+      {
+        temp4 = 0;
+      } 
+      $.ajax({
+        url:'../ajax.php',
+        data:{mode:temp4,id:id},
+        dataType:'json',
+        error: function(data){
+          if(mode == 'Add')
+          {
+            $(temp).prop("value","Remove");
+            $(temp).attr("onclick",temp2);
+          }
+          else
+          {
+            $(temp).prop("value","Add");
+            $(temp).attr("onclick",temp3);
+          }
+        }
+        // error: function(ts) { alert(ts.responseText) }
+      });
+    }
+  </script>
 </body>
 </html>
