@@ -242,12 +242,12 @@ border: 1px solid black;
 #update_first_half{
   float: left;
   padding-left: 5%;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 #update_second_half{
   padding-left: 40%;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 #update_make_update{
