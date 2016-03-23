@@ -59,7 +59,7 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
         <form action="<?php $_SERVER['PHP_SELF']?>" method="POST">
           <h1 style="color: black;">עדכן סטודנט לפי מספר זהות</h1>
           <input type="number" id="update_ID_search" name="update_ID_search" min="1" placeholder="הכנס מספר זהות" style="text-align: right;">
-          <input type="submit" id="update_ID_search_button" value="חפש סטודנט" id="search_stud" class="button" name="stud_search"/>
+          <input type="submit" id="update_ID_search_button" value="עדכון מסד כללי" id="search_stud" class="button" name="stud_search"/>
         </form>
         <?php
         if (isset($_POST["stud_search"]))
@@ -572,7 +572,7 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
       <div id="update_pretendents">
         <h1>עדכן את כל המועמדים</h1>
         <form id="update_form" action="<?php $_SERVER['PHP_SELF']?>" method="POST">
-          <input type="submit" id="update_preten_button" value="עדכן מועמדים" name="update_preten_button" class="button"/>
+          <input type="submit" id="update_preten_button" value="עדכון הצלחת מועמדים" name="update_preten_button" class="button"/>
         </form>
         <?php
         if (isset($_POST["update_preten_button"])) 
