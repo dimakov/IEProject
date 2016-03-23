@@ -1,0 +1,270 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+*
+{
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+	  background-image: url(backg.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+    height: 100%;
+}
+
+header
+{
+    padding: 35px;
+    border-radius: 10px;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #304D8A 68%, #4576D1 100%);
+
+    opacity: 0.95;
+}
+
+.main
+{
+    float: left;
+    text-align: center;
+    width: 75%;
+    padding-bottom: 60px;
+}
+
+
+nav ul
+{
+    float: right;
+    overflow: auto;
+
+    width: 25%;
+    margin: 20px 0 0 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    background-color: #0675D1;
+    border-radius: 15px;
+
+    opacity: 0.95;
+}
+
+nav li a
+{
+    font-size: 40px;
+
+    display: block;
+
+    padding: 16px 0 16px 24px;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: #39B4D7;
+
+    border-radius: 25px;   
+}
+
+nav li a.active
+{
+    color: white;
+    background-color: #112EA7;
+}
+
+nav li a:hover:not(.active)
+{
+    color: white;
+    background-color: #0B33D5;
+}
+
+footer{
+  display: block;
+	background-color: #0B3355;
+	position: fixed;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    font-size: 30px;
+    color: orange;
+    text-align: center;
+    opacity: 0.75;
+}
+
+table
+{
+font-family: "comic sans ms"; 
+margin-left: 10pt; 
+color: black; 
+text-align: left; 
+word-spacing: normal;
+border: 1px solid black;
+}
+
+#index_description{
+  display: inline-block;
+  position: relative;
+  padding-left: 100px;
+  top: -30px;
+  font-size: 40px;
+  font-family: Ariel;
+}
+
+.login-page {
+  width: 360px;
+  margin: 50px 25%; 
+}
+
+.form {
+  position: center;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 25px;
+  font-size: 14px;
+}
+.form #submit_button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 20px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form #submit_button:hover,.form #submit_button:active,.form #submit_button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+
+.applic_opts{
+	font-size: 23px;
+	font-family: "Times New Roman", Times, serif;
+	padding: 5px;
+	color: white;
+}
+
+#newstud_form{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+#newstud_second_sec{
+  margin-left: 30px;
+}
+
+#newstud_submit_button{
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 500px;
+}
+
+.session{
+  font-size: 28px;
+  font-family: "Times New Roman", Times, serif;
+  float: right;
+}
+
+.loggedout{
+  margin: 0;
+  font-size: 50px;
+  color: green;
+  padding: 10% 30%;
+}
+
+#loggedout_exit{
+  font-size: 50px;
+  color: yellow;
+  padding: 0 34%;
+}
+
+#loggedout_exit:hover{
+  font-size: 50px;
+}
+
+#update_main{
+  display: flex;
+}
+
+#update_student{
+  margin: 0 auto;
+  padding: 30px;
+  color: greenyellow;
+}
+
+#update_pretendents{
+  margin: 0 auto;
+  padding: 30px;
+  padding-left: 0px;
+}
+
+#update_ID_search{
+  margin-left: 20px;
+}
+
+#update_ID_search_button{
+  margin-left: 30px;
+}
+
+#update_preten_button{
+  margin-left: 60px;
+}
+
+#update_first_half{
+  float: left;
+  padding-left: 5%;
+  padding-top: 5px;
+}
+
+#update_second_half{
+  padding-left: 40%;
+  padding-top: 5px;
+}
+
+#update_make_update{
+  display: inline-block;
+  margin-top: 4%;
+}
+
+td {
+    color: #335190;
+    text-align: left;
+    background: #7fd2fb;
+}
+
+iframe{
+  display:inline-block;
+  margin-top: 10px;
+  margin-left: 5px;
+  width:74%;
+  height: 74vh;
+}
