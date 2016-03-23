@@ -337,10 +337,6 @@ if (isset($_SESSION['curruser']))
           <div class="applic_opts">Student:</div>
           <input type="radio" name="student" value="TRUE"> Yes
           <input type="radio" name="student" value="FALSE" checked> No<br>
-
-          <div class="applic_opts">Graduate Student:</div>
-          <input type="radio" name="grad_stud" value="TRUE"> Yes
-          <input type="radio" name="grad_stud" value="FALSE" checked> No<br>
       </div>
   </form>
   <div id="newstud_submit_button">
@@ -360,7 +356,6 @@ if (isset($_POST["submit"]))
     $success='';
     $applicant='';
     $student='';
-    $grad_stud='';
     if (!isset($_POST["ID"]))
         {
             echo "<h3>No ID entererd. Please enter ID of the student.</h3><br>";
@@ -458,17 +453,9 @@ if (isset($_POST["submit"]))
         {
             $student=$_POST["student"];
         }
-    if (!isset($_POST["grad_stud"]))
-        {
-            echo "<h3>No grad_stud entererd. Please enter grad_stud.</h3><br>";
-        }
-    else
-        {
-            $grad_stud=$_POST["grad_stud"];
-        }
 
     $sql="INSERT INTO students(ID,ApplicDate,Country,City,District,School,GradeAR,Age,UniGrade,Success,Applicant,Student,GradStud) 
-        VALUES(".$ID.",'".$date."','".$country."','".$city."','".$district."','".$school."',".$grade_ar.",".$age.",".$uni_grade.",".$success.",".$applicant.",".$student.",".$grad_stud.");";
+        VALUES(".$ID.",'".$date."','".$country."','".$city."','".$district."','".$school."',".$grade_ar.",".$age.",".$uni_grade.",".$success.",".$applicant.",".$student.");";
         $result=mysql_query($sql);
         if (!$result)
         {

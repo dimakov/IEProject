@@ -73,12 +73,12 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
               $stud_array = mysql_fetch_array($result);
               echo "<table>";
               echo "<br><th colspan='13' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
-              echo "<tr><td>ID</td><td>Date</td><td>Country</td><td>City</td><td>District</td><td>School</td><td>Grade AR</td><td>Age</td><td>University</td><td>Success</td><td>Applicant</td><td>Student</td><td>Graduate Student</td></tr>";
+              echo "<tr><td>ID</td><td>Date</td><td>Country</td><td>City</td><td>District</td><td>School</td><td>Grade AR</td><td>Age</td><td>University</td><td>Success</td><td>Applicant</td><td>Student</td></tr>";
               $stud_array[9] ? $stud_array[9]='Yes' : $stud_array[9]='No';
               $stud_array[10] ? $stud_array[10]='Yes' : $stud_array[10]='No';
               $stud_array[11] ? $stud_array[11]='Yes' : $stud_array[11]='No';
               $stud_array[12] ? $stud_array[12]='Yes' : $stud_array[12]='No';
-              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[2]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td>".$stud_array[10]."</td><td>".$stud_array[11]."</td><td>".$stud_array[12]."</td></tr>";
+              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[2]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td>".$stud_array[10]."</td><td>".$stud_array[11]."</td></tr>";
               echo "</table>";
 
               ?>
@@ -350,10 +350,11 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
 
                   <div class="update_applic_opts">School:</div>
                   <input type="text" name="school" >
-                  <div class="update_applic_opts">Grade AR:</div>
-                  <input type="number" name="grade_ar" placeholder="0-100" min="0" max="100" >
                 </div>
                 <div id="update_second_half">
+                  <div class="update_applic_opts">Grade AR:</div>
+                  <input type="number" name="grade_ar" placeholder="0-100" min="0" max="100" >
+            
                   <div class="update_applic_opts">Age:</div>
                   <input type="number" name="age" placeholder="10-99" min="10" max="99" > 
                   <div class="update_applic_opts">University Grade:</div>
@@ -370,9 +371,6 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
                   <input type="radio" name="student" value="TRUE"> Yes
                   <input type="radio" name="student" value="FALSE"> No<br>
 
-                  <div class="update_applic_opts">Graduate Student:</div>
-                  <input type="radio" name="grad_stud" value="TRUE"> Yes
-                  <input type="radio" name="grad_stud" value="FALSE"> No<br>
                 </div>
                 <input type="submit" id="update_make_update" value="הכנס שינויים" class="button" name="update_make_update"/>
               </form>
@@ -404,7 +402,6 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
           $success='';
           $applicant='';
           $student='';
-          $grad_stud='';
           if (!empty($_POST["ID"]))
           {
             $sql="UPDATE students SET ID=".$_POST["ID"]." WHERE ID=".$_SESSION["stud_ID_glob"].";";
@@ -567,19 +564,6 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
               echo "<br>Updated student";
             }
           }
-          if (!empty($_POST["grad_stud"]))
-          {
-            $sql="UPDATE students SET GradStud=".$_POST['grad_stud']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
-            $result=mysql_query($sql);
-            if (!$result)
-            {
-              die("Couldn't add grad student to the data base.<br>".mysql_error());
-            }
-            else
-            {
-              echo "<br>Updated graduate student";
-            }
-          }
         }
         ?>
 
@@ -599,14 +583,14 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
           {                  
             echo "<table>";
             echo "<br><th colspan='13' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
-            echo "<tr><td>ID</td><td>Date</td><td>Country</td><td>City</td><td>District</td><td>School</td><td>Grade AR</td><td>Age</td><td>University</td><td>Success</td><td>Applicant</td><td>Student</td><td>Graduate Student</td></tr>";
+            echo "<tr><td>ID</td><td>Date</td><td>Country</td><td>City</td><td>District</td><td>School</td><td>Grade AR</td><td>Age</td><td>University</td><td>Success</td><td>Applicant</td><td>Student</td></tr>";
             while ($stud_array = mysql_fetch_array($result))
             {
               $stud_array[9] ? $stud_array[9]='Yes' : $stud_array[9]='No';
               $stud_array[10] ? $stud_array[10]='Add' : $stud_array[10]='Remove';
               $stud_array[11] ? $stud_array[11]='Yes' : $stud_array[11]='No';
               $stud_array[12] ? $stud_array[12]='Yes' : $stud_array[12]='No';
-              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[2]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td><input type='button' id='change-".$stud_array[0]."' value='".$stud_array[10]."' class='onButton' onclick=FnBookmark(".$stud_array[0].",'Add')></input></td><td>".$stud_array[11]."</td><td>".$stud_array[12]."</td></tr>";
+              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[2]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td><input type='button' id='change-".$stud_array[0]."' value='".$stud_array[10]."' class='onButton' onclick=FnBookmark(".$stud_array[0].",'Add')></input></td><td>".$stud_array[11]."</td></tr>";
             }
             echo "</table>";
           }

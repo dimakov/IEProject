@@ -251,11 +251,20 @@ border: 1px solid black;
 }
 
 #update_make_update{
-  margin-top: 70px;
+  display: inline-block;
+  margin-top: 4%;
 }
 
 td {
     color: #335190;
     text-align: left;
     background: #7fd2fb;
+}
+
+iframe{
+  display:inline-block;
+  margin-top: 10px;
+  margin-left: 5px;
+  width:74%;
+  height: 74vh;
 }
