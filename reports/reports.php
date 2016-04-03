@@ -44,20 +44,7 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
 			<li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
 		</ul>
 	</nav>
-	<?php
-	if (isset($_SESSION['curruser']))
-	{
-		?>
-		<div class="reports_main">
-			 <iframe src="http://192.168.174.129:3838/ieproj/"></iframe> 
-		</div>
-		<?php 
-	} else {
-		?>
-		<div class="loggedout">נא הירשם למערכת</div>
-		<?php
-	}
-	?>
+		<iframe src="http://192.168.174.129:3838/ieproj/"></iframe> 
 	<footer>
 		כל הזכויות שמורות 
 	</footer>

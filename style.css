@@ -8,7 +8,7 @@
 html,
 body
 {
-	  background-image: url(backg.png);
+	  background-image: url(backg.jpg);
     background-repeat:no-repeat;
     background-size:cover;
     height: 100%;
@@ -166,10 +166,10 @@ border: 1px solid black;
 }
 
 .applic_opts{
-	font-size: 23px;
+	font-size: 28px;
 	font-family: "Times New Roman", Times, serif;
 	padding: 5px;
-	color: white;
+	color: black;
 }
 
 #newstud_form{
