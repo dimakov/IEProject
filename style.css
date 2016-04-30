@@ -167,7 +167,7 @@ border: 1px solid black;
 }
 
 .applic_opts{
-	font-size: 28px;
+	font-size: 24px;
 	padding: 5px;
 	color: black;
 }
@@ -176,12 +176,10 @@ border: 1px solid black;
   display: flex;
   justify-content: center;
   padding-top: 50px;
-  font-size: 20px;
 }
 
 #newstud_second_sec{
   margin-left: 100px;
-  font-size: 20px;
 }
 
 #newstud_third_sec{
@@ -192,6 +190,7 @@ border: 1px solid black;
   text-align: center;
   margin-top: 50px;
   margin-right: 500px;
+  margin-bottom: 30px;
 }
 
 .session{
