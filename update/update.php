@@ -605,9 +605,6 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
     <?php
   }
   ?>
-  <footer>
-    כל הזכויות שמורות 
-  </footer>
   <script>
     function FnBookmark(id,mode){
       // var temp = '"#' + id + '"';

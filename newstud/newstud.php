@@ -51,11 +51,18 @@ if (isset($_SESSION['curruser']))
         <form id="newstud_form" action="<?php $_SERVER['PHP_SELF']?>" method="POST">
           <div id="newstud_first_sec">
               <div class="applic_opts">Applicant ID:</div>
-              <input type="number" name="ID" autofocus="" min="1" required>
-              <div class="applic_opts">Application date:</div>
-              <input name="date" type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" required="" placeholder="dd/mm/yyyy">
+              <input type="number" name="id" autofocus="" min="1" required>
 
-              <div class="applic_opts">Country:</div>
+              <div class="applic_opts">Acceptance date:</div>
+              <input name="acc_date" type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" required="" placeholder="dd/mm/yyyy">
+
+              <div class="applic_opts">Faculty:</div>
+              <input name="faculty" type="text">
+
+              <div class="applic_opts">Homeland:</div>
+              <input name="homeland" type="text">
+
+              <div class="applic_opts">Current country:</div>
               <select name="country" required>
                 <option value="">Country...</option>
                 <option value="Afganistan">Afghanistan</option>
@@ -310,33 +317,88 @@ if (isset($_SESSION['curruser']))
             <div class="applic_opts">City:</div>
             <input type="text" name="city" placeholder="Enter the city..." required>
 
-            <div class="applic_opts">District:</div>
-            <input type="text" name="district" required>
+            <div class="applic_opts">Country:</div>
+            <input type="text" name="county" placeholder="Enter the city..." required>
 
-            <div class="applic_opts">School:</div>
-            <input type="text" name="school" required>
+            <div class="applic_opts">Highschool:</div>
+            <input type="text" name="highschool" required>
+
+            <div class="applic_opts">Year of birth:</div>
+            <input type="number" name="yob" required> 
         </div>
+
         <div id="newstud_second_sec">
-          <div class="applic_opts">Grade AR:</div>
-          <input type="number" name="grade_ar" placeholder="0-100" min="0" max="100" required>
+          <div class="applic_opts">Internal bagrut:</div>
+          <input type="number" name="int_bagrut" required>
 
-          <div class="applic_opts">Age:</div>
-          <input type="number" name="age" placeholder="10-99" min="10" max="99" required> 
+          <div class="applic_opts">Math score 11th grade:</div>
+          <input type="number" name="math_11" required>
 
-          <div class="applic_opts">University Grade:</div>
-          <input type="number" name="uni_grade" placeholder="0-100" min="0" max="100" required>
+          <div class="applic_opts">Math score 12th grade:</div>
+          <input type="number" name="math_12" required>
 
-          <div class="applic_opts">Success:</div>
-          <input type="radio" name="success" value="TRUE"> Yes
-          <input type="radio" name="success" value="FALSE" checked> No
+          <div class="applic_opts">Physics score 11th grade:</div>
+          <input type="number" name="phys_11" required>
 
-          <div class="applic_opts">Applicant:</div>
-          <input type="radio" name="applicant" value="TRUE"> Yes
-          <input type="radio" name="applicant" value="FALSE" checked> No<br>
+          <div class="applic_opts">Physics score 12th grade:</div>
+          <input type="number" name="phys_12" required>
 
-          <div class="applic_opts">Student:</div>
-          <input type="radio" name="student" value="TRUE"> Yes
-          <input type="radio" name="student" value="FALSE" checked> No<br>
+          <div class="applic_opts">Learning disabilities:</div>
+          <input type="radio" name="dissablities" value="TRUE"> Yes
+          <input type="radio" name="dissablities" value="FALSE" checked> No
+
+          <div class="applic_opts">English test:</div>
+          <input type="radio" name="eng_test" value="TRUE"> Yes
+          <input type="radio" name="eng_test" value="FALSE" checked> No
+
+          <div class="applic_opts">English grade:</div>
+          <input type="number" name="eng_grade" required>
+
+          <div class="applic_opts">English test type:</div>
+          <input type="text" name="eng_test_type" required>
+
+          <div class="applic_opts">Sorting test:</div>
+          <input type="radio" name="sort_test" value="TRUE"> Yes
+          <input type="radio" name="sort_test" value="FALSE" checked> No
+
+      </div>
+      <div id="newstud_third_sec">
+
+          <div class="applic_opts">Sorting test type type:</div>
+          <input type="text" name="st_type" required>
+
+          <div class="applic_opts">Sorting test math grade:</div>
+          <input type="number" name="st_math" required>
+
+          <div class="applic_opts">Sorting test physics grade:</div>
+          <input type="number" name="st_phys" required>required>
+
+          <div class="applic_opts">Sorting test final grade:</div>
+          <input type="number" name="st_final" required>
+
+          <div class="applic_opts">University:</div>
+          <input type="radio" name="uni" value="TRUE"> Yes
+          <input type="radio" name="uni" value="FALSE" checked> No
+
+          <div class="applic_opts">Interview grade:</div>
+          <input type="number" name="int_grade" required>
+
+          <div class="applic_opts">Scholarship:</div>
+          <input type="radio" name="scholarship" value="TRUE"> Yes
+          <input type="radio" name="scholarship" value="FALSE" checked> No
+
+          <div class="applic_opts">Accepted:</div>
+          <input type="radio" name="accepted" value="TRUE"> Yes
+          <input type="radio" name="accepted" value="FALSE" checked> No<br>
+
+          <div class="applic_opts">Passed mechina:</div>
+          <input type="radio" name="mechina" value="TRUE"> Yes
+          <input type="radio" name="mechina" value="FALSE" checked> No<br>
+
+          <div class="applic_opts">Comments:</div>
+          <input type="text" name="comments" required>
+
+
       </div>
   </form>
   <div id="newstud_submit_button">
@@ -476,8 +538,5 @@ if (isset($_POST["submit"]))
     <?php
 }
 ?>
-<footer>
-    כל הזכויות שמורות 
-</footer>
 </body>
 </html>

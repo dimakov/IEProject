@@ -3,6 +3,7 @@
 *
 {
     box-sizing: border-box;
+    font-family: Arial;
 }
 
 html,
@@ -107,7 +108,7 @@ border: 1px solid black;
   padding-left: 100px;
   top: -30px;
   font-size: 40px;
-  font-family: Ariel;
+  font-family: Arial;
 }
 
 .login-page {
@@ -167,7 +168,6 @@ border: 1px solid black;
 
 .applic_opts{
 	font-size: 28px;
-	font-family: "Times New Roman", Times, serif;
 	padding: 5px;
 	color: black;
 }
@@ -176,10 +176,16 @@ border: 1px solid black;
   display: flex;
   justify-content: center;
   padding-top: 50px;
+  font-size: 20px;
 }
 
 #newstud_second_sec{
-  margin-left: 30px;
+  margin-left: 100px;
+  font-size: 20px;
+}
+
+#newstud_third_sec{
+  margin-left: 100px;
 }
 
 #newstud_submit_button{

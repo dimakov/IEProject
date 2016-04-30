@@ -44,9 +44,6 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
 			<li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
 		</ul>
 	</nav>
-		<iframe src="http://192.168.174.129:3838/ieproj/"></iframe> 
-	<footer>
-		כל הזכויות שמורות 
-	</footer>
+		<iframe src="http://192.168.174.130:3838/ieproj/"></iframe> 
 </body>
 </html>

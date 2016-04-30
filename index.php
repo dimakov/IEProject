@@ -89,8 +89,5 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
     echo '<div id="loggedout_exit"><a href="../logout.php">יציאה</a></div>';
   }
   ?>
-  <footer>
-    כל הזכויות שמורות 
-  </footer>
 </body>
 </html>

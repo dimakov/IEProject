@@ -83,8 +83,5 @@ session_start();
   <?php
 }
 ?>
-<footer>
-  כל הזכויות שמורות 
-</footer>
 </body>
 </html>
