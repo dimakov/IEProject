@@ -364,7 +364,7 @@ if (isset($_SESSION['curruser']))
       </div>
       <div id="newstud_third_sec">
 
-          <div class="applic_opts">Sorting test type type:</div>
+          <div class="applic_opts">Sorting test type:</div>
           <input type="text" name="st_type">
 
           <div class="applic_opts">Sorting test math grade:</div>
