@@ -40,10 +40,21 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
 			<li><a href="../newstud/newstud.php" >הוספת מועמד</a></li>
 			<li><a class="active">הפקדת דוח"ות</a></li>
 			<li><a href="../update/update.php" >עדכון מסד נתונים</a></li>
-			<!--<li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
 			<li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
 		</ul>
 	</nav>
-		<iframe src="http://192.168.174.130:3838/ieproj/"></iframe> 
+	<?php
+  if (isset($_SESSION['curruser']))
+  {
+    ?>
+	    <iframe src="http://localhost:3838/apps/classify/"></iframe> 
+  <?php 
+} else {
+  ?>
+  <div class="loggedout">נא הירשם למערכת</div>
+  <?php
+}
+?>
+		
 </body>
 </html>

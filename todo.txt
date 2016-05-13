@@ -1,4 +1,0 @@
-1. Add hash for password
-2. Create new table for storing users
-3. Create Admin user
-4. 

@@ -39,7 +39,6 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
       <li><a class="active">הוספת מועמד</a></li>
       <li><a href="../reports/reports.php" >הפקדת דוח"ות</a></li>
       <li><a href="../update/update.php" >עדכון מסד נתונים</a></li>
-      <!-- <li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
       <li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
   </ul>
 </nav>
@@ -360,6 +359,8 @@ if (isset($_SESSION['curruser']))
           <div class="applic_opts">Sorting test:</div>
           <input type="radio" name="sort_test" value="TRUE"> Yes
           <input type="radio" name="sort_test" value="FALSE" checked> No
+          <br><br><br>
+          <input style="font-size: 30px;" name="submit" value="הכנס מועמד" type="submit" form="newstud_form">
 
       </div>
       <div id="newstud_third_sec">
@@ -402,7 +403,7 @@ if (isset($_SESSION['curruser']))
       </div>
   </form>
   <div id="newstud_submit_button">
-    <input style="font-size: 30px;" name="submit" value="הכנס מועמד" type="submit" form="newstud_form">
+    
 <?php
 if (isset($_POST["submit"])) 
 {

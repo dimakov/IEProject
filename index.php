@@ -64,7 +64,6 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
       <li><a href="newstud/newstud.php" >הוספת מועמד</a></li>
       <li><a href="reports/reports.php" >הפקדת דוח"ות</a></li>
       <li><a href="update/update.php" >עדכון מסד נתונים</a></li>
-      <!--<li><a href="/newstud/newstud.php" >הוספת סטודנט חדש</a></li> -->
       <li><a href="newacc/newacc.php" >רישום משתמש חדש</a></li>
     </ul>
   </nav>

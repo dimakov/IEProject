@@ -102,6 +102,11 @@ word-spacing: normal;
 border: 1px solid black;
 }
 
+tr,td{
+  font-size: 16px;
+  font-family: Arial; 
+}
+
 #index_description{
   display: inline-block;
   position: relative;
@@ -223,7 +228,6 @@ border: 1px solid black;
 #update_student{
   margin: 0 auto;
   padding: 30px;
-  color: greenyellow;
 }
 
 #update_pretendents{
@@ -237,25 +241,62 @@ border: 1px solid black;
 }
 
 #update_ID_search_button{
+  font-size: 24px;
+  font-family: Arial;
   margin-left: 30px;
+  padding: 10px;
 }
 
 #update_preten_button{
+  font-size: 24px;
+  font-family: Arial;
   margin-left: 60px;
+  padding: 10px;
 }
 
-#update_first_half{
+#update_first{
   float: left;
   padding-left: 5%;
   padding-top: 5px;
 }
 
-#update_second_half{
-  padding-left: 40%;
+#update_second{
+  float: left;
+  padding-left: 5%;
+  padding-top: 5px;
+}
+
+#update_third{
+  float: left;
+  padding-left: 5%;
+  padding-top: 5px;
+}
+
+#update_fourth{
+  float: left;
+  padding-left: 5%;
+  padding-top: 5px;
+}
+
+#update_fifth{
+  float: left;
+  padding-left: 5%;
   padding-top: 5px;
 }
 
 #update_make_update{
+  padding: 10px;
+  font-size: 24px;
+  font-family: Arial;
+  display: inline-block;
+  margin-top: 4%;
+}
+
+#update_delete{
+  padding: 5px;
+  font-size: 24px;
+  font-family: Arial;
+  color: red;
   display: inline-block;
   margin-top: 4%;
 }
