@@ -56,7 +56,7 @@ if (isset($_SESSION['curruser']))
     <div id="update_main">
       <div id="update_student">
         <form action="<?php $_SERVER['PHP_SELF']?>" method="POST">
-          <input type="number" id="update_ID_search" name="update_ID_search" min="1" placeholder="הכנס מספר זהות" style="text-align: right; padding: 10px;">
+          <input type="number" id="update_ID_search" name="update_ID_search" min="1" placeholder="הכנס מספר זהות" style="text-align: right; padding: 10px; font-size: 24px;">
           <input type="submit" id="update_ID_search_button" value="עדכון מסד כללי" id="search_stud" class="button" name="stud_search"/>
       </form>
       <?php
@@ -73,14 +73,18 @@ if (isset($_SESSION['curruser']))
               echo "<br><th colspan='31' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
               echo "<tr style='font-weight:bold'><td>ID</td><td>Acceptance Date</td><td>Homeland</td><td>Current Country</td><td>City</td><td>Faculty</td><td>County</td><td>Highschool</td><td>Year of Birth</td><td>Internal bagrut</td><td>Math 11</td><td>Math 12</td></tr>";
 
-              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[2]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td>".$stud_array[10]."</td><td>".$stud_array[11]."</td></tr><tr></tr><tr></tr>";
-              echo "<tr style='font-weight:bold'><td>Physics 11</td><td>Physics 12</td><td>Learning Disabilities</td><td>English Test</td><td>English Grade</td><td>English Test Type</td><td>Sorting Test</td><td>ST Math Grade</td><td>ST Physics Grade</td><td>ST Final</td><td>ST Type</td></tr><tr></tr><tr></tr>";
+              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[2]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td>".$stud_array[10]."</td><td>".$stud_array[11]."</td></tr><tr></tr><tr></tr>";
+              echo "<tr style='font-weight:bold'><td>Physics 11</td><td>Physics 12</td><td>Learning Disabilities</td><td>English Test</td><td>English Grade</td><td>English Test Type</td><td>Sorting Test</td><td>ST Math Grade</td><td>ST Physics Grade</td><td>ST Final</td><td>ST Type</td></tr>";
               $stud_array[14] ? $stud_array[14]='Yes' : $stud_array[14]='No';
               $stud_array[15] ? $stud_array[15]='Yes' : $stud_array[15]='No';
-              echo "<tr><td>".$stud_array[12]."</td><td>".$stud_array[13]."</td><td>".$stud_array[14]."</td><td>".$stud_array[15]."</td><td>".$stud_array[16]."</td><td>".$stud_array[17]."</td><td>".$stud_array[18]."</td><td>".$stud_array[19]."</td><td>".$stud_array[20]."</td><td>".$stud_array[21]."</td><td>".$stud_array[22]."</td><td>".$stud_array[23]."</td></tr><tr></tr><tr></tr>";
+              echo "<tr><td>".$stud_array[12]."</td><td>".$stud_array[13]."</td><td>".$stud_array[14]."</td><td>".$stud_array[15]."</td><td>".$stud_array[16]."</td><td>".$stud_array[17]."</td><td>".$stud_array[18]."</td><td>".$stud_array[19]."</td><td>".$stud_array[20]."</td><td>".$stud_array[21]."</td><td>".$stud_array[22]."</td></tr><tr></tr><tr></tr>";
               
               echo "<tr style='font-weight:bold'><td>University</td><td>Interview Grade</td><td>Scholarship</td><td>Accepted</td><td>Passed Mechina</td><td>Comments</td></tr>";
-
+              $stud_array[23] ? $stud_array[23]='Yes' : $stud_array[23]='No';
+              $stud_array[25] ? $stud_array[25]='Yes' : $stud_array[25]='No';
+              $stud_array[26] ? $stud_array[26]='Yes' : $stud_array[26]='No';
+              $stud_array[27] ? $stud_array[27]='Yes' : $stud_array[27]='No';
+              echo "<tr><td>".$stud_array[23]."</td><td>".$stud_array[24]."</td><td>".$stud_array[25]."</td><td>".$stud_array[26]."</td><td>".$stud_array[27]."</td><td>".$stud_array[28]."</td></tr>";
               echo "</table>";
 
               ?>
@@ -373,11 +377,11 @@ if (isset($_SESSION['curruser']))
 
                   <div class="update_applic_opts">Math score 12th grade:</div>
                   <input type="number" name="math_12">
-                    <div class="update_applic_opts">Physics score 11th grade:</div>
-                <input type="number" name="phys_11">
+                  <div class="update_applic_opts">Physics score 11th grade:</div>
+                  <input type="number" name="phys_11">
 
-                <div class="update_applic_opts">Physics score 12th grade:</div>
-                <input type="number" name="phys_12">
+                  <div class="update_applic_opts">Physics score 12th grade:</div>
+                  <input type="number" name="phys_12">
                   <br><br>
                   <input type="submit" id="update_make_update" value="הכנס שינויים" class="button" name="update_make_update"/>
               </div>
@@ -453,19 +457,36 @@ else
 <?php
 if (isset($_POST["update_make_update"])) 
 {
-  $ID='';
-  $date='';
-  $country='';
-  $city='';
-  $district='';
-  $school='';
-  $grade_ar='';
-  $age='';
-  $uni_grade='';
-  $success='';
-  $applicant='';
-  $student='';
-  if (!empty($_POST["ID"]))
+    $id='';
+    $acc_date='';
+    $faculty='';
+    $homeland='';
+    $country='';
+    $city='';
+    $county='';
+    $highschool='';
+    $yob='';
+    $int_bagrut='';
+    $math_11='';
+    $math_12='';
+    $phys_11='';
+    $phys_12='';
+    $learn_dis='';
+    $eng_test='';
+    $eng_grade='';
+    $eng_test_type='';
+    $sort_test='';
+    $st_type='';
+    $st_math='';
+    $st_phys='';
+    $st_final='';
+    $uni='';
+    $int_grade='';
+    $scholarship='';
+    $accepted='';
+    $mechina='';
+    $comments='';
+  if (!empty($_POST["id"]))
   {
     $sql="UPDATE students SET ID=".$_POST["ID"]." WHERE ID=".$_SESSION["stud_ID_glob"].";";
     $result=mysql_query($sql);

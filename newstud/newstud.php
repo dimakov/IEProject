@@ -360,8 +360,6 @@ if (isset($_SESSION['curruser']))
           <input type="radio" name="sort_test" value="TRUE"> Yes
           <input type="radio" name="sort_test" value="FALSE" checked> No
           <br><br><br>
-          <input style="font-size: 30px;" name="submit" value="הכנס מועמד" type="submit" form="newstud_form">
-
       </div>
       <div id="newstud_third_sec">
 
@@ -402,7 +400,9 @@ if (isset($_SESSION['curruser']))
 
       </div>
   </form>
+
   <div id="newstud_submit_button">
+          <input style="font-size: 30px;" name="submit" value="הכנס מועמד" type="submit" form="newstud_form">
     
 <?php
 if (isset($_POST["submit"])) 
@@ -552,10 +552,14 @@ if (isset($_POST["submit"]))
         {
             $eng_test_type=$_POST["eng_test_type"];
         }
+    if (isset($_POST["st_type"]))
+        {
+            $st_type=$_POST["st_type"];
+        }
     if (isset($_POST["sort_test"]))
         {
             $sort_test=$_POST["sort_test"];
-        }
+        }  
     if (isset($_POST["st_math"]))
         {
             $st_math=$_POST["st_math"];
@@ -594,7 +598,7 @@ if (isset($_POST["submit"]))
         }
 
     $sql="INSERT INTO students(ID,Acceptance_Date,Faculty,Homeland,Current_Country,City,County,Highschool,Year_Of_Birth,Internal_Bagrut,math_score_11,math_score_12,physics_score_11,physics_score_12,learning_dis,english_test,english_grade,english_test_type,sorting_test,s_t_math_grade,s_t_physics_grade,s_t_final,s_t_type,university,interview_grade,scholarship,accepted,Pass_mechina,comments)
-        VALUES(".$id.",'".$acc_date."','".$faculty."','".$homeland."','".$country."','".$city."','".$county."','".$highschool."',".$yob.",".$int_bagrut.",".$math_11.",".$math_12.",".$phys_11.",".$phys_12.",".$learn_dis.",".$eng_test.",".$eng_grade.",'".$eng_test_type."',".$sort_test.",".$st_math.",".$st_phys.",".$st_final.",".$uni.",".$int_grade.",".$scholarship.",".$accepted.",".$mechina.",'".$comments."');";
+        VALUES(".$id.",'".$acc_date."','".$faculty."','".$homeland."','".$country."','".$city."','".$county."','".$highschool."',".$yob.",".$int_bagrut.",".$math_11.",".$math_12.",".$phys_11.",".$phys_12.",".$learn_dis.",".$eng_test.",".$eng_grade.",'".$eng_test_type."',".$sort_test.",".$st_math.",".$st_phys.",".$st_final.",'".$st_type."',".$uni.",".$int_grade.",".$scholarship.",".$accepted.",".$mechina.",'".$comments."');";
         $result=mysql_query($sql);
         if (!$result)
         {
