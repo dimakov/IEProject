@@ -670,7 +670,7 @@ if (!empty($_POST["learn_dis"]))
 }
 if (!empty($_POST["eng_test"]))
 {
-    $sql="UPDATE students SET math_score_11=".$_POST['eng_test']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET english_test=".$_POST['eng_test']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -681,9 +681,9 @@ if (!empty($_POST["eng_test"]))
       echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
   }
 }
-if (!empty($_POST["math_11"]))
+if (!empty($_POST["eng_grade"]))
 {
-    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET english_grade=".$_POST['eng_grade']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -694,9 +694,9 @@ if (!empty($_POST["math_11"]))
       echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
   }
 }
-if (!empty($_POST["math_11"]))
+if (!empty($_POST["eng_test_type"]))
 {
-    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET english_test_type=".$_POST['eng_test_type']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -707,9 +707,9 @@ if (!empty($_POST["math_11"]))
       echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
   }
 }
-if (!empty($_POST["math_11"]))
+if (!empty($_POST["sort_test"]))
 {
-    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET sorting_test=".$_POST['sort_test']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -720,9 +720,9 @@ if (!empty($_POST["math_11"]))
       echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
   }
 }
-if (!empty($_POST["math_11"]))
+if (!empty($_POST["st_type"]))
 {
-    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET s_t_math_grade=".$_POST['st_type']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -733,9 +733,9 @@ if (!empty($_POST["math_11"]))
       echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
   }
 }
-if (!empty($_POST["math_11"]))
+if (!empty($_POST["st_math"]))
 {
-    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET s_t_physics_grade=".$_POST['st_math']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -746,9 +746,100 @@ if (!empty($_POST["math_11"]))
       echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
   }
 }
-if (!empty($_POST["math_11"]))
+if (!empty($_POST["st_phys"]))
 {
-    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET s_t_final=".$_POST['st_phys']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["st_final"]))
+{
+    $sql="UPDATE students SET s_t_type=".$_POST['st_final']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["uni"]))
+{
+    $sql="UPDATE students SET university=".$_POST['uni']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["int_grade"]))
+{
+    $sql="UPDATE students SET interview_grade=".$_POST['int_grade']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["scholarship"]))
+{
+    $sql="UPDATE students SET scholarship=".$_POST['scholarship']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["accepted"]))
+{
+    $sql="UPDATE students SET accepted=".$_POST['accepted']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["mechina"]))
+{
+    $sql="UPDATE students SET Pass_mechina=".$_POST['mechina']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["comments"]))
+{
+    $sql="UPDATE students SET comments=".$_POST['comments']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
