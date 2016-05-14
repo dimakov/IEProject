@@ -179,8 +179,9 @@ tr,td{
 
 #newstud_form{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   padding-top: 50px;
+  margin-left: 40px;
 }
 
 #newstud_second_sec{
@@ -192,10 +193,15 @@ tr,td{
 }
 
 #newstud_submit_button{
-  text-align: center;
-  margin-top: 50px;
-  margin-right: 500px;
-  margin-bottom: 30px;
+  text-align: left;
+  margin-top: 15px;
+  margin-left: 20%;
+}
+
+#newstud_pred_res{
+  display:inline-block;
+  width: 300px;
+  height: 100px;
 }
 
 .session{
