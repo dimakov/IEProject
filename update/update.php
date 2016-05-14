@@ -71,31 +71,28 @@ if (isset($_SESSION['curruser']))
               $stud_array = mysql_fetch_array($result);
               echo "<table>";
               echo "<br><th colspan='31' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
-              echo "<tr style='font-weight:bold'><td>ID</td><td>Acceptance Date</td><td>Homeland</td><td>Current Country</td><td>City</td><td>Faculty</td><td>County</td><td>Highschool</td><td>Year of Birth</td><td>Internal bagrut</td><td>Math 11</td><td>Math 12</td></tr>";
+              echo "<tr style='font-weight:bold'><td>ID</td><td>Acceptance Date</td><td>Homeland</td><td>Current Country</td><td>City</td><td>Faculty</td><td>County</td><td>Highschool</td><td>Year of Birth</td><td>Internal bagrut</td></tr>";
 
-              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[2]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td>".$stud_array[10]."</td><td>".$stud_array[11]."</td></tr><tr></tr><tr></tr>";
-              echo "<tr style='font-weight:bold'><td>Physics 11</td><td>Physics 12</td><td>Learning Disabilities</td><td>English Test</td><td>English Grade</td><td>English Test Type</td><td>Sorting Test</td><td>ST Math Grade</td><td>ST Physics Grade</td><td>ST Final</td><td>ST Type</td></tr>";
+              echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[2]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td></tr><tr></tr><tr></tr>";
+              echo "<tr style='font-weight:bold'><td>Math 11</td><td>Math 12</td><td>Physics 11</td><td>Physics 12</td><td>Learning Disabilities</td><td>English Test</td><td>English Grade</td><td>English Test Type</td><td>Sorting Test</td><td>ST Math Grade</td></tr>";
               $stud_array[14] ? $stud_array[14]='Yes' : $stud_array[14]='No';
               $stud_array[15] ? $stud_array[15]='Yes' : $stud_array[15]='No';
-              echo "<tr><td>".$stud_array[12]."</td><td>".$stud_array[13]."</td><td>".$stud_array[14]."</td><td>".$stud_array[15]."</td><td>".$stud_array[16]."</td><td>".$stud_array[17]."</td><td>".$stud_array[18]."</td><td>".$stud_array[19]."</td><td>".$stud_array[20]."</td><td>".$stud_array[21]."</td><td>".$stud_array[22]."</td></tr><tr></tr><tr></tr>";
+              echo "<tr><td>".$stud_array[10]."</td><td>".$stud_array[11]."</td><td>".$stud_array[12]."</td><td>".$stud_array[13]."</td><td>".$stud_array[14]."</td><td>".$stud_array[15]."</td><td>".$stud_array[16]."</td><td>".$stud_array[17]."</td><td>".$stud_array[18]."</td><td>".$stud_array[19]."</td></tr><tr></tr><tr></tr>";
               
-              echo "<tr style='font-weight:bold'><td>University</td><td>Interview Grade</td><td>Scholarship</td><td>Accepted</td><td>Passed Mechina</td><td>Comments</td></tr>";
+              echo "<tr style='font-weight:bold'><td>ST Physics Grade</td><td>ST Final</td><td>ST Type</td><td>University</td><td>Interview Grade</td><td>Scholarship</td><td>Accepted</td><td>Passed Mechina</td><td>Comments</td></tr>";
               $stud_array[23] ? $stud_array[23]='Yes' : $stud_array[23]='No';
               $stud_array[25] ? $stud_array[25]='Yes' : $stud_array[25]='No';
               $stud_array[26] ? $stud_array[26]='Yes' : $stud_array[26]='No';
               $stud_array[27] ? $stud_array[27]='Yes' : $stud_array[27]='No';
-              echo "<tr><td>".$stud_array[23]."</td><td>".$stud_array[24]."</td><td>".$stud_array[25]."</td><td>".$stud_array[26]."</td><td>".$stud_array[27]."</td><td>".$stud_array[28]."</td></tr>";
+              echo "<tr><td>".$stud_array[20]."</td><td>".$stud_array[21]."</td><td>".$stud_array[22]."</td><td>".$stud_array[23]."</td><td>".$stud_array[24]."</td><td>".$stud_array[25]."</td><td>".$stud_array[26]."</td><td>".$stud_array[27]."</td><td>".$stud_array[28]."</td></tr>";
               echo "</table>";
 
               ?>
               <h3 style="padding-left:40%; font-size: 28px; font-family: Arial; ">הכנס את הנתונים שברצונך לשנות</h3>
               <form id="update_form" action="<?php $_SERVER['PHP_SELF']?>" method="POST">
                 <div id="update_first">
-                    <div class="update_applic_opts">Applicant ID:</div>
-                    <input type="number" name="id" autofocus="" min="1" required>
-
                     <div class="update_applic_opts">Acceptance date:</div>
-                    <input name="acc_date" type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" required="" placeholder="dd/mm/yyyy">
+                    <input name="acc_date" type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/yyyy">
 
                     <div class="update_applic_opts">Faculty:</div>
                     <input name="faculty" type="text">
@@ -104,7 +101,7 @@ if (isset($_SESSION['curruser']))
                     <input name="homeland" type="text">
 
                     <div class="update_applic_opts">Current country:</div>
-                    <select name="country" required>
+                    <select name="country" >
                         <option value="">Country...</option>
                         <option value="Afganistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
@@ -356,18 +353,17 @@ if (isset($_SESSION['curruser']))
                     </select><br>
 
                     <div class="update_applic_opts">City:</div>
-                    <input type="text" name="city" placeholder="Enter the city..." required>
+                    <input type="text" name="city" placeholder="Enter the city..." >
 
                     <div class="update_applic_opts">County:</div>
-                    <input type="text" name="county" required>
+                    <input type="text" name="county" >
+                    <div class="update_applic_opts">Highschool:</div>
+                    <input type="text" name="highschool" >
 
                 </div>
                 <div id="update_second">
-                  <div class="update_applic_opts">Highschool:</div>
-                  <input type="text" name="highschool" required>
-
                   <div class="update_applic_opts">Year of birth:</div>
-                  <input type="number" name="yob" required>
+                  <input type="number" name="yob" >
 
                   <div class="update_applic_opts">Internal bagrut:</div>
                   <input type="number" name="int_bagrut">
@@ -382,18 +378,16 @@ if (isset($_SESSION['curruser']))
 
                   <div class="update_applic_opts">Physics score 12th grade:</div>
                   <input type="number" name="phys_12">
+                  <div class="update_applic_opts">Learning disabilities:</div>
+                  <input type="radio" name="learn_dis" value="TRUE"> Yes
+                  <input type="radio" name="learn_dis" value="FALSE"> No
                   <br><br>
                   <input type="submit" id="update_make_update" value="הכנס שינויים" class="button" name="update_make_update"/>
               </div>
               <div id="update_third">
-
-                <div class="update_applic_opts">Learning disabilities:</div>
-                <input type="radio" name="learn_dis" value="TRUE"> Yes
-                <input type="radio" name="learn_dis" value="FALSE" checked> No
-
                 <div class="update_applic_opts">English test:</div>
                 <input type="radio" name="eng_test" value="TRUE"> Yes
-                <input type="radio" name="eng_test" value="FALSE" checked> No
+                <input type="radio" name="eng_test" value="FALSE"> No
 
                 <div class="update_applic_opts">English grade:</div>
                 <input type="number" name="eng_grade">
@@ -403,39 +397,37 @@ if (isset($_SESSION['curruser']))
 
                 <div class="update_applic_opts">Sorting test:</div>
                 <input type="radio" name="sort_test" value="TRUE"> Yes
-                <input type="radio" name="sort_test" value="FALSE" checked> No
+                <input type="radio" name="sort_test" value="FALSE"> No
                 <div class="update_applic_opts">Sorting test type:</div>
                 <input type="text" name="st_type">
                 <div class="update_applic_opts">Sorting test math grade:</div>
                 <input type="number" name="st_math">
+                <div class="update_applic_opts">Sorting test physics grade:</div>
+                <input type="number" name="st_phys">
                 <br><br>
                 <input type="submit" id="update_delete" value="מחק סטודנט" class="button" name="update_delete"/>
             </div>
             <div id="update_fourth">
-
-                <div class="update_applic_opts">Sorting test physics grade:</div>
-                <input type="number" name="st_phys">
-
                 <div class="update_applic_opts">Sorting test final grade:</div>
                 <input type="number" name="st_final">
 
                 <div class="update_applic_opts">University:</div>
                 <input type="radio" name="uni" value="TRUE"> Yes
-                <input type="radio" name="uni" value="FALSE" checked> No
+                <input type="radio" name="uni" value="FALSE"> No
 
                 <div class="update_applic_opts">Interview grade:</div>
                 <input type="number" name="int_grade">
                 <div class="update_applic_opts">Scholarship:</div>
                 <input type="radio" name="scholarship" value="TRUE"> Yes
-                <input type="radio" name="scholarship" value="FALSE" checked> No
+                <input type="radio" name="scholarship" value="FALSE"> No
 
                 <div class="update_applic_opts">Accepted:</div>
                 <input type="radio" name="accepted" value="TRUE"> Yes
-                <input type="radio" name="accepted" value="FALSE" checked> No<br>
+                <input type="radio" name="accepted" value="FALSE"> No<br>
 
                 <div class="update_applic_opts">Passed mechina:</div>
                 <input type="radio" name="mechina" value="TRUE"> Yes
-                <input type="radio" name="mechina" value="FALSE" checked> No<br>
+                <input type="radio" name="mechina" value="FALSE"> No<br>
 
                 <div class="update_applic_opts">Comments:</div>
                 <input type="text" name="comments">
@@ -486,24 +478,12 @@ if (isset($_POST["update_make_update"]))
     $accepted='';
     $mechina='';
     $comments='';
-  if (!empty($_POST["id"]))
-  {
-    $sql="UPDATE students SET ID=".$_POST["ID"]." WHERE ID=".$_SESSION["stud_ID_glob"].";";
-    $result=mysql_query($sql);
-    if (!$result)
-    {
-      die("Couldn't add ID to the data base.<br>".mysql_error());
-  }
-  else
-  {
-      echo "<br>Updated ID";
-  }
-}
-if (!empty($_POST["date"]))
+
+if (!empty($_POST["acc_date"]))
 {
-    $date1 = str_replace("/", "-", $_POST["date"]);
+    $date1 = str_replace("/", "-", $_POST["acc_date"]);
     $date = date('Y-m-d', strtotime($date1));
-    $sql="UPDATE students SET ApplicDate='$date' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET Acceptance_Date='$date' WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -511,13 +491,41 @@ if (!empty($_POST["date"]))
   }
   else
   {
-      echo "<br>Updated date";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Date</div>";
+  }
+}
+if (!empty($_POST["faculty"]))
+{
+    $temp = $_POST["faculty"];
+    $sql="UPDATE students SET Faculty='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add faculty to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Faculty</div>";
+  }
+}
+if (!empty($_POST["homeland"]))
+{
+    $temp = $_POST["homeland"];
+    $sql="UPDATE students SET Homeland='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add homeland to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Homeland</div>";
   }
 }
 if (!empty($_POST["country"]))
 {
     $temp = $_POST["country"];
-    $sql="UPDATE students SET Country='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET Current_Country='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -525,7 +533,7 @@ if (!empty($_POST["country"]))
   }
   else
   {
-      echo "<br>Updated country";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Country</div>";
   }
 }
 if (!empty($_POST["city"]))
@@ -539,115 +547,239 @@ if (!empty($_POST["city"]))
   }
   else
   {
-      echo "<br>Updated city";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated City</div>";
   }
 }
-if (!empty($_POST["district"]))
+if (!empty($_POST["county"]))
 {
-    $temp=$_POST['district'];
-    $sql="UPDATE students SET District='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $temp = $_POST['county'];
+    $sql="UPDATE students SET County='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add district to the data base.<br>".mysql_error());
+      die("Couldn't add County to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated district";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated County</div>";
   }
 }
-if (!empty($_POST["school"]))
+if (!empty($_POST["highschool"]))
 {
-    $temp = $_POST['school'];
-    $sql="UPDATE students SET School='$temp' WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET Highschool=".$_POST["highschool"]." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add school to the data base.<br>".mysql_error());
+      die("Couldn't add Highschool to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated school";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Highschool</div>";
   }
 }
-if (!empty($_POST["grade_ar"]))
+if (!empty($_POST["yob"]))
 {
-    $sql="UPDATE students SET GradeAR=".$_POST["grade_ar"]." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET Year_Of_Birth=".$_POST['yob']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add grade AR to the data base.<br>".mysql_error());
+      die("Couldn't add Year of Birth to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated grade AR";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Year of Birth</div>";
   }
 }
-if (!empty($_POST["age"]))
+if (!empty($_POST["int_bagrut"]))
 {
-    $sql="UPDATE students SET Age=".$_POST['age']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET Internal_Bagrut=".$_POST['int_bagrut']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add age to the data base.<br>".mysql_error());
+      die("Couldn't add Internal Bagrut to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated age";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Internal Bagrut</div>";
   }
 }
-if (!empty($_POST["uni_grade"]))
+if (!empty($_POST["math_11"]))
 {
-    $sql="UPDATE students SET UniGrade=".$_POST['uni_grade']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add uni grade to the data base.<br>".mysql_error());
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated university grade";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
   }
 }
-if (!empty($_POST["success"]))
+if (!empty($_POST["math_12"]))
 {
-    $sql="UPDATE students SET Success=".$_POST['success']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET math_score_12=".$_POST['math_12']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add success to the data base.<br>".mysql_error());
+      die("Couldn't add Math Score 12 to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated success";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 12</div>";
   }
 }
-if (!empty($_POST["applicant"]))
+if (!empty($_POST["phys_11"]))
 {
-    $sql="UPDATE students SET Applicant=".$_POST['applicant']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET physics_score_11=".$_POST['phys_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add applicant to the data base.<br>".mysql_error());
+      die("Couldn't add Physics Score 11 to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated applicant";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Physics Score 11</div>";
   }
 }
-if (!empty($_POST["student"]))
+if (!empty($_POST["phys_12"]))
 {
-    $sql="UPDATE students SET Student=".$_POST['student']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET physics_score_11=".$_POST['phys_12']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add student to the data base.<br>".mysql_error());
+      die("Couldn't add Physics Score 12 to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br>Updated student";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Physics Score 12</div>";
   }
 }
+if (!empty($_POST["learn_dis"]))
+{
+    $sql="UPDATE students SET learning_dis=".$_POST['learn_dis']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Learning Disabilities to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Learning Disabilities</div>";
+  }
+}
+if (!empty($_POST["eng_test"]))
+{
+    $sql="UPDATE students SET math_score_11=".$_POST['eng_test']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["math_11"]))
+{
+    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["math_11"]))
+{
+    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["math_11"]))
+{
+    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["math_11"]))
+{
+    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["math_11"]))
+{
+    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+if (!empty($_POST["math_11"]))
+{
+    $sql="UPDATE students SET math_score_11=".$_POST['math_11']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+  }
+  else
+  {
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+  }
+}
+}
+if (isset($_POST["update_delete"]))
+{
+    echo "<h1>? האם הנך בטוח שברצונך למחוק את הסטודנט ".$_SESSION['stud_ID_glob']."</h1>";
+    echo "<form id='update_form' action=".$_SERVER['PHP_SELF']." method='POST'>";
+    echo "<input type='submit' id='update_confirm' value='!מחק' class='button' name='update_confirm' style='padding: 20px; color:red; font-size:24px; margin-left:15%;'/>";
+    echo "</form>";
+}
+if (isset($_POST["update_confirm"]))
+{
+    $sql="DELETE FROM students WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+        die("Couldn't delete student.<br>".mysql_error());
+    }
+    else
+    {
+
+        echo "<br></br><div style='color:green; font-size: 24px;'>Student ".$_SESSION['stud_ID_glob']." deleted</div>";
+    }
 }
 ?>
 
@@ -660,7 +792,7 @@ if (!empty($_POST["student"]))
   <?php
   if (isset($_POST["update_preten_button"])) 
   {
-      $sql = "SELECT * FROM students WHERE Applicant = 1;";
+      $sql = "SELECT * FROM students WHERE accepted = 0;";
       $result = mysql_query($sql);
       if(mysql_num_rows($result) > 0)
       {                  
@@ -694,10 +826,10 @@ if (!empty($_POST["student"]))
           var temp = "#change-" + id + "";
           var temp2 = "FnBookmark("+id+",'Remove')";
           var temp3 = "FnBookmark("+id+",'Add')";
-          var temp4 = 1;
+          var temp4 = 0;
           if (mode == 'Add')
           {
-            temp4 = 0;
+            temp4 = 1;
         } 
         $.ajax({
             url:'../ajax.php',

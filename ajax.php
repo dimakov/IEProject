@@ -39,7 +39,7 @@ else
 	}
 }
 
-$query = "UPDATE students SET Applicant='".$set_app."' WHERE ID='".$id."';";
+$query = "UPDATE students SET accepted='".$set_app."' WHERE ID='".$id."';";
 
 $result = mysql_query($query);
 
