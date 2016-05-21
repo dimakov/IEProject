@@ -199,9 +199,10 @@ tr,td{
 }
 
 #newstud_pred_res{
-  display:inline-block;
-  width: 300px;
-  height: 100px;
+  margin-left: 100px;
+  margin-top: 100px;
+  width: 500px;
+  height: 80px;
 }
 
 .session{

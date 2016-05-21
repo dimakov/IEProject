@@ -1,0 +1,49 @@
+library(MASS)
+setwd("C:/Users/user/Desktop/mia")
+
+data_<- read.csv("beitsefer.csv",  header = TRUE)
+
+data_ <- data_[which(data_$Accepted=='Accepted' | data_$Accepted=='Rejected'),]
+
+impute.med <- function(x) {
+	z <- median(x, na.rm = TRUE)
+	x[is.na(x)] <- z
+	return(x)
+}
+
+
+for (i in c(9:17, 19:22, 24:26)) {
+	to_delete <- c()
+	if (length(data_[,i][is.na(data_[,i])])/length(data_[,i]) < 0.2){
+		data_[,i] <- impute.med(data_[,i])}
+	else {to_delete = c(to_delete, i)}
+}
+
+data_[,to_delete] <- NULL
+
+df = data_[,c(9:16,23:26,28)]
+df<-na.omit(df)
+
+lda_model<-lda(df$Pass_Mechina~.,data=df)
+
+predict(lda_model, df[1, 1:12])$posterior[,"1"]
+
+
+#####Testing for explanations
+sum<-0
+for (i in 1:50){
+#divide to test and train
+indexes = sample(1:nrow(df), size=0.2*nrow(df))
+test = df[indexes,]
+train = df[-indexes,]
+
+lda_model<-lda(train$Pass_Mechina~.,data=train)
+
+#compute test error
+pred<-predict(lda_model, test)
+tab1=table(pred$class,test$Pass_Mechina)
+
+test_error<-(tab1["0","1"]+tab1["1","0"])/(tab1["0","1"]+tab1["1","0"]+tab1["1","1"]+tab1["0","0"])
+
+sum<-sum+test_error
+}

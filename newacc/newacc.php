@@ -1,5 +1,8 @@
 <?php
 session_start();
+$con = @mysql_connect('localhost','root','');
+if (!$con) die("Could not connect to the server!"); 
+if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
 ?>
 
 <!DOCTYPE html>
@@ -50,25 +53,17 @@ session_start();
       <div class="one">
         <div class="register">
           <h3>צור משתמש חדש</h3>
-          <form id="reg-form">
+          <form action="<?php $_SERVER['PHP_SELF']?>" method="POST">
             <div>
-              <input type="text" id="username" spellcheck="false" autofocus="" style="text-align:right;" placeholder="שם משתמש"/>
+              <input type="text" id="username" spellcheck="false" autofocus="" style="text-align:right;" placeholder="שם משתמש" name="username"/>
               <label for="name">שם משתמש</label>
             </div>
             <div>
-              <input type="text" id="email" spellcheck="false" style="text-align:right;" placeholder="אי-מייל"/>
-              <label for="email">דוא"ל</label>
-            </div>
-            <div>
-              <input type="password" style="text-align:right;" id="סיסמא" />
+              <input type="password" style="text-align:right;" id="סיסמא" name="password"/>
               <label for="password">סיסמא</label>
             </div>
             <div>
-              <input type="password" style="text-align:right;" id="הכנס סיסמא שנית" />
-              <label for="password-again">סיסמא שנית</label>
-            </div>
-            <div>
-              <input type="submit" value="צור משתמש" id="create-account" class="button"/>
+              <input type="submit" value="צור משתמש" id="create-account" class="button" name="submit"/>
             </div>
           </form>
         </div>
@@ -81,6 +76,40 @@ session_start();
   <div class="loggedout">נא הירשם למערכת</div>
   <?php
 }
+?>
+
+<?php
+  if (isset($_POST['submit']))
+  {
+    $username='';
+    $password='';
+    if (!isset($_POST["username"]))
+    {
+        echo "<h3>No User Name entererd. Please enter ID of the student.</h3><br>";
+    }
+    else
+    {
+        $username=$_POST["username"];
+    }
+    if (!isset($_POST["password"]))
+    {
+        echo "<h3>No Password entererd. Please enter ID of the student.</h3><br>";
+    }
+    else
+    {
+        $password=$_POST["password"];
+    }
+    $sql="INSERT INTO users(username,password) VALUES('".$username."','".$password."');";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+        die("Couldn't add this Service Call to the data base".mysql_error());
+    }
+    else
+    {
+        echo "<div style='margin-left:29%; font-size:34px; color:green;'>המשתמש נרשם בהצלחה</div>";
+    }
+  }
 ?>
 </body>
 </html>

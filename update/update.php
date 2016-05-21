@@ -674,11 +674,11 @@ if (!empty($_POST["eng_test"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add English Test to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated English Test</div>";
   }
 }
 if (!empty($_POST["eng_grade"]))
@@ -687,11 +687,11 @@ if (!empty($_POST["eng_grade"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add English Grade to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated English Grade</div>";
   }
 }
 if (!empty($_POST["eng_test_type"]))
@@ -700,11 +700,11 @@ if (!empty($_POST["eng_test_type"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add English Test Type to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated English Test Type</div>";
   }
 }
 if (!empty($_POST["sort_test"]))
@@ -713,63 +713,63 @@ if (!empty($_POST["sort_test"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Sort Test to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Sort Test</div>";
   }
 }
 if (!empty($_POST["st_type"]))
 {
-    $sql="UPDATE students SET s_t_math_grade=".$_POST['st_type']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET s_t_type=".$_POST['st_type']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Sort Test Type to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Sort Test Type</div>";
   }
 }
 if (!empty($_POST["st_math"]))
 {
-    $sql="UPDATE students SET s_t_physics_grade=".$_POST['st_math']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET s_t_math_grade=".$_POST['st_math']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add ST Physics Grade to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated ST Physics Grade</div>";
   }
 }
 if (!empty($_POST["st_phys"]))
 {
-    $sql="UPDATE students SET s_t_final=".$_POST['st_phys']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET s_t_physics_grade=".$_POST['st_phys']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Sort Test Final to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Sort Test Final</div>";
   }
 }
 if (!empty($_POST["st_final"]))
 {
-    $sql="UPDATE students SET s_t_type=".$_POST['st_final']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
+    $sql="UPDATE students SET s_t_final=".$_POST['st_final']." WHERE ID=".$_SESSION['stud_ID_glob'].";";
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Sort Test Final to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Sort Test Final</div>";
   }
 }
 if (!empty($_POST["uni"]))
@@ -778,11 +778,11 @@ if (!empty($_POST["uni"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add University to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated University</div>";
   }
 }
 if (!empty($_POST["int_grade"]))
@@ -791,11 +791,11 @@ if (!empty($_POST["int_grade"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Interview Grade to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Interview Grade</div>";
   }
 }
 if (!empty($_POST["scholarship"]))
@@ -804,11 +804,11 @@ if (!empty($_POST["scholarship"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Scholarship to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Scholarship</div>";
   }
 }
 if (!empty($_POST["accepted"]))
@@ -817,11 +817,11 @@ if (!empty($_POST["accepted"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Accepted to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Accepted</div>";
   }
 }
 if (!empty($_POST["mechina"]))
@@ -830,11 +830,11 @@ if (!empty($_POST["mechina"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Mechina to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Mechina</div>";
   }
 }
 if (!empty($_POST["comments"]))
@@ -843,11 +843,11 @@ if (!empty($_POST["comments"]))
     $result=mysql_query($sql);
     if (!$result)
     {
-      die("Couldn't add Math Score 11 to the data base.<br>".mysql_error());
+      die("Couldn't add Comments to the data base.<br>".mysql_error());
   }
   else
   {
-      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Math Score 11</div>";
+      echo "<br></br><div style='color:green; font-size: 24px;'>Updated Comments</div>";
   }
 }
 }

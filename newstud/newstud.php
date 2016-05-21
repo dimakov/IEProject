@@ -43,6 +43,215 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
   </ul>
 </nav>
 <?php
+if (isset($_POST["submit"])) 
+{
+    $id='';
+    $acc_date='';
+    $faculty='';
+    $homeland='';
+    $country='';
+    $city='';
+    $county='';
+    $highschool='';
+    $yob='';
+    $int_bagrut='';
+    $math_11=NULL;
+    $math_12=NULL;
+    $phys_11=NULL;
+    $phys_12=NULL;
+    $learn_dis='';
+    $eng_test='';
+    $eng_grade=NULL;
+    $eng_test_type='';
+    $sort_test='';
+    $st_type='';
+    $st_math=NULL;
+    $st_phys=NULL;
+    $st_final=NULL;
+    $uni='';
+    $int_grade=NULL;
+    $scholarship='';
+    $accepted='';
+    $mechina='';
+    $comments='';
+
+
+    if (!isset($_POST["id"]))
+    {
+        echo "<h3>No ID entererd. Please enter ID of the student.</h3><br>";
+    }
+    else
+    {
+        $id=$_POST["id"];
+    }
+
+    if (!isset($_POST["acc_date"]))
+    {
+        echo "<h3>No date entererd. Please enter date.</h3><br>";
+    }
+    else
+    {
+        $date1 = str_replace("/", "-", $_POST["acc_date"]);
+        $acc_date = date('Y-m-d', strtotime($date1));
+    } 
+
+    if (isset($_POST["faculty"]))
+    {
+        $faculty=$_POST["faculty"];
+    }
+
+    if (isset($_POST["homeland"]))
+    {
+        $homeland=$_POST["homeland"];
+    }
+
+    if (!isset($_POST["country"]))
+    {
+        echo "<h3>No country entererd. Please enter country.</h3><br>";
+    }
+    else
+    {
+        $country=$_POST["country"];
+    }
+    if (!isset($_POST["city"]))
+    {
+        echo "<h3>No city entererd. Please enter city.</h3><br>";
+    }
+    else
+    {
+        $city=$_POST["city"];
+    }
+
+
+    if (!isset($_POST["county"]))
+    {
+        echo "<h3>No county entererd. Please enter district.</h3><br>";
+    }
+    else
+    {
+        $county=$_POST["county"];
+    }
+
+    if (!isset($_POST["highschool"]))
+    {
+        echo "<h3>No highschool entererd. Please enter school.</h3><br>";
+    }
+    else
+    {
+        $highschool=$_POST["highschool"];
+    }
+
+    if (!isset($_POST["yob"]))
+    {
+        echo "<h3>No yob entererd. Please enter age.</h3><br>";
+    }
+    else
+    {
+        $yob=$_POST["yob"];
+    }
+
+    if (!isset($_POST["int_bagrut"]))
+    {
+        echo "<h3>No int_bagrut entererd. Please enter uni_grade.</h3><br>";
+    }
+    else
+    {
+        $int_bagrut=$_POST["int_bagrut"];
+    }
+    if (isset($_POST["math_11"]))
+    {
+        $math_11=$_POST["math_11"];
+    }
+    if (isset($_POST["math_12"]))
+    {
+        $math_12=$_POST["int_bagrut"];
+    }
+    if (isset($_POST["phys_11"]))
+    {
+        $phys_11=$_POST["phys_11"];
+    }
+    if (isset($_POST["phys_12"]))
+    {
+        $phys_12=$_POST["phys_12"];
+    }
+    if (isset($_POST["learn_dis"]))
+    {
+        $learn_dis=$_POST["learn_dis"];
+    }
+    if (isset($_POST["eng_test"]))
+    {
+        $eng_test=$_POST["eng_test"];
+    }
+    if (isset($_POST["eng_grade"]))
+    {
+        $eng_grade=$_POST["eng_grade"];
+    }
+    if (isset($_POST["eng_test_type"]))
+    {
+        $eng_test_type=$_POST["eng_test_type"];
+    }
+    if (isset($_POST["st_type"]))
+    {
+        $st_type=$_POST["st_type"];
+    }
+    if (isset($_POST["sort_test"]))
+    {
+        $sort_test=$_POST["sort_test"];
+    }  
+    if (isset($_POST["st_math"]))
+    {
+        $st_math=$_POST["st_math"];
+    }
+    if (isset($_POST["st_phys"]))
+    {
+        $st_phys=$_POST["st_phys"];
+    }
+    if (isset($_POST["st_final"]))
+    {
+        $st_final=$_POST["st_final"];
+    }
+    if (isset($_POST["uni"]))
+    {
+        $uni=$_POST["uni"];
+    }
+    if (isset($_POST["int_grade"]))
+    {
+        $int_grade=$_POST["int_grade"];
+    }
+    if (isset($_POST["scholarship"]))
+    {
+        $scholarship=$_POST["scholarship"];
+    }
+    if (isset($_POST["accepted"]))
+    {
+        $accepted=$_POST["accepted"];
+    }
+    if (isset($_POST["mechina"]))
+    {
+        $mechina=$_POST["mechina"];
+    }
+    if (isset($_POST["comments"]))
+    {
+        $comments=$_POST["comments"];
+    }
+
+    $sql="INSERT INTO students(ID,Acceptance_Date,Faculty,Homeland,Current_Country,City,County,Highschool,Year_Of_Birth,Internal_Bagrut,math_score_11,math_score_12,physics_score_11,physics_score_12,learning_dis,english_test,english_grade,english_test_type,sorting_test,s_t_math_grade,s_t_physics_grade,s_t_final,s_t_type,university,interview_grade,scholarship,accepted,Pass_mechina,comments)
+    VALUES(".$id.",'".$acc_date."','".$faculty."','".$homeland."','".$country."','".$city."','".$county."','".$highschool."',".$yob.",".$int_bagrut.",".$math_11.",".$math_12.",".$phys_11.",".$phys_12.",".$learn_dis.",".$eng_test.",".$eng_grade.",'".$eng_test_type."',".$sort_test.",".$st_math.",".$st_phys.",".$st_final.",'".$st_type."',".$uni.",".$int_grade.",".$scholarship.",".$accepted.",".$mechina.",'".$comments."');";
+    $result=mysql_query($sql);
+    if (!$result)
+    {
+        die("<br><font color='red'> Couldn't add this Service Call to the data base.</font><br>".mysql_error());
+    }
+    else
+    {
+        echo "<div style='margin-left:30%; font-size:34px;'>:החיזוי המתקבל להצלחת מועמד</div>";
+        echo "<iframe id='newstud_pred_res' src='http://localhost:3838/apps/predres/'></iframe>";
+        echo "<a href='../newstud/newstud.php' style='margin-left:100px; font-size:34px; color: green;'>חזרה להוספת מועמד</a>";
+        die();
+    }
+}
+?>
+<?php
 if (isset($_SESSION['curruser']))
 {
     ?>
@@ -317,10 +526,10 @@ if (isset($_SESSION['curruser']))
             <input type="text" name="city" placeholder="Enter the city..." required>
 
             <div class="applic_opts">County:</div>
-            <input type="text" name="county" required>
+            <input type="text" name="county">
 
             <div class="applic_opts">Highschool:</div>
-            <input type="text" name="highschool" required>
+            <input type="text" name="highschool">
 
             <div class="applic_opts">Year of birth:</div>
             <input type="number" name="yob" required> 
@@ -396,226 +605,12 @@ if (isset($_SESSION['curruser']))
 
           <div class="applic_opts">Comments:</div>
           <input type="text" name="comments">
-
-
       </div>
-        <?php
-          if (isset($_POST["submit"])) 
-          {
-            echo "<iframe id='newstud_pred_res' src='http://localhost:3838/apps/predres/'></iframe>";
-          }
-        ?>
 </form>
 
 <div id="newstud_submit_button">
   <input style="font-size: 30px;" name="submit" value="הכנס מועמד" type="submit" form="newstud_form">
 
-  <?php
-  if (isset($_POST["submit"])) 
-  {
-    $id='';
-    $acc_date='';
-    $faculty='';
-    $homeland='';
-    $country='';
-    $city='';
-    $county='';
-    $highschool='';
-    $yob='';
-    $int_bagrut='';
-    $math_11=NULL;
-    $math_12=NULL;
-    $phys_11=NULL;
-    $phys_12=NULL;
-    $learn_dis='';
-    $eng_test='';
-    $eng_grade=NULL;
-    $eng_test_type='';
-    $sort_test='';
-    $st_type='';
-    $st_math=NULL;
-    $st_phys=NULL;
-    $st_final=NULL;
-    $uni='';
-    $int_grade=NULL;
-    $scholarship='';
-    $accepted='';
-    $mechina='';
-    $comments='';
-
-
-    if (!isset($_POST["id"]))
-    {
-        echo "<h3>No ID entererd. Please enter ID of the student.</h3><br>";
-    }
-    else
-    {
-        $id=$_POST["id"];
-    }
-
-    if (!isset($_POST["acc_date"]))
-    {
-        echo "<h3>No date entererd. Please enter date.</h3><br>";
-    }
-    else
-    {
-        $date1 = str_replace("/", "-", $_POST["acc_date"]);
-        $acc_date = date('Y-m-d', strtotime($date1));
-    } 
-
-    if (isset($_POST["faculty"]))
-    {
-        $faculty=$_POST["faculty"];
-    }
-
-    if (isset($_POST["homeland"]))
-    {
-        $homeland=$_POST["homeland"];
-    }
-
-    if (!isset($_POST["country"]))
-    {
-        echo "<h3>No country entererd. Please enter country.</h3><br>";
-    }
-    else
-    {
-        $country=$_POST["country"];
-    }
-    if (!isset($_POST["city"]))
-    {
-        echo "<h3>No city entererd. Please enter city.</h3><br>";
-    }
-    else
-    {
-        $city=$_POST["city"];
-    }
-
-
-    if (!isset($_POST["county"]))
-    {
-        echo "<h3>No county entererd. Please enter district.</h3><br>";
-    }
-    else
-    {
-        $county=$_POST["county"];
-    }
-
-    if (!isset($_POST["highschool"]))
-    {
-        echo "<h3>No highschool entererd. Please enter school.</h3><br>";
-    }
-    else
-    {
-        $highschool=$_POST["highschool"];
-    }
-
-    if (!isset($_POST["yob"]))
-    {
-        echo "<h3>No yob entererd. Please enter age.</h3><br>";
-    }
-    else
-    {
-        $yob=$_POST["yob"];
-    }
-
-    if (!isset($_POST["int_bagrut"]))
-    {
-        echo "<h3>No int_bagrut entererd. Please enter uni_grade.</h3><br>";
-    }
-    else
-    {
-        $int_bagrut=$_POST["int_bagrut"];
-    }
-    if (isset($_POST["math_11"]))
-    {
-        $math_11=$_POST["math_11"];
-    }
-    if (isset($_POST["math_12"]))
-    {
-        $math_12=$_POST["int_bagrut"];
-    }
-    if (isset($_POST["phys_11"]))
-    {
-        $phys_11=$_POST["phys_11"];
-    }
-    if (isset($_POST["phys_12"]))
-    {
-        $phys_12=$_POST["phys_12"];
-    }
-    if (isset($_POST["learn_dis"]))
-    {
-        $learn_dis=$_POST["learn_dis"];
-    }
-    if (isset($_POST["eng_test"]))
-    {
-        $eng_test=$_POST["eng_test"];
-    }
-    if (isset($_POST["eng_grade"]))
-    {
-        $eng_grade=$_POST["eng_grade"];
-    }
-    if (isset($_POST["eng_test_type"]))
-    {
-        $eng_test_type=$_POST["eng_test_type"];
-    }
-    if (isset($_POST["st_type"]))
-    {
-        $st_type=$_POST["st_type"];
-    }
-    if (isset($_POST["sort_test"]))
-    {
-        $sort_test=$_POST["sort_test"];
-    }  
-    if (isset($_POST["st_math"]))
-    {
-        $st_math=$_POST["st_math"];
-    }
-    if (isset($_POST["st_phys"]))
-    {
-        $st_phys=$_POST["st_phys"];
-    }
-    if (isset($_POST["st_final"]))
-    {
-        $st_final=$_POST["st_final"];
-    }
-    if (isset($_POST["uni"]))
-    {
-        $uni=$_POST["uni"];
-    }
-    if (isset($_POST["int_grade"]))
-    {
-        $int_grade=$_POST["int_grade"];
-    }
-    if (isset($_POST["scholarship"]))
-    {
-        $scholarship=$_POST["scholarship"];
-    }
-    if (isset($_POST["accepted"]))
-    {
-        $accepted=$_POST["accepted"];
-    }
-    if (isset($_POST["mechina"]))
-    {
-        $mechina=$_POST["mechina"];
-    }
-    if (isset($_POST["comments"]))
-    {
-        $comments=$_POST["comments"];
-    }
-
-    $sql="INSERT INTO students(ID,Acceptance_Date,Faculty,Homeland,Current_Country,City,County,Highschool,Year_Of_Birth,Internal_Bagrut,math_score_11,math_score_12,physics_score_11,physics_score_12,learning_dis,english_test,english_grade,english_test_type,sorting_test,s_t_math_grade,s_t_physics_grade,s_t_final,s_t_type,university,interview_grade,scholarship,accepted,Pass_mechina,comments)
-    VALUES(".$id.",'".$acc_date."','".$faculty."','".$homeland."','".$country."','".$city."','".$county."','".$highschool."',".$yob.",".$int_bagrut.",".$math_11.",".$math_12.",".$phys_11.",".$phys_12.",".$learn_dis.",".$eng_test.",".$eng_grade.",'".$eng_test_type."',".$sort_test.",".$st_math.",".$st_phys.",".$st_final.",'".$st_type."',".$uni.",".$int_grade.",".$scholarship.",".$accepted.",".$mechina.",'".$comments."');";
-    $result=mysql_query($sql);
-    if (!$result)
-    {
-        die("<br><font color='red'> Couldn't add this Service Call to the data base.</font><br>".mysql_error());
-    }
-    else
-    {
-        echo "<h3><font color='green'>Successfuly added to the database.</font></h3>";
-    }
-}
-?>
 </div>
 </div>
 <?php 
