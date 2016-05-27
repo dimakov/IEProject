@@ -85,6 +85,7 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
   else 
   {
     echo '<div class="loggedout">'.$_SESSION['curruser'].' רשום כ </div>';
+    echo '<img style="margin-left:21%; margin-top:30px;" src="intro.png">';
     echo '<a class="btn_exit" href="../logout.php">יציאה</a>';
   }
   ?>

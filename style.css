@@ -206,10 +206,10 @@ tr,td{
 }
 
 .loggedout{
-  margin: 0;
+  margin: 30px 0 30px;
   font-size: 50px;
   color: green;
-  padding: 10% 30%;
+  padding: 0 30%;
 }
 
 #loggedout_exit:hover{
@@ -372,6 +372,7 @@ iframe{
 
 .btn_exit {
   margin: 0 33%;
+  margin-top: 30px;
     color: rgb(0, 115, 153);
     text-decoration: none;
     background-color: rgb(51, 204, 255);
