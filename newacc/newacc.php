@@ -27,7 +27,7 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
       {
         echo "".$_SESSION['curruser']." רשום כ ";
         echo '<br>';
-        echo '<a href="../logout.php">יציאה</a>';
+        echo '<a class="btn" href="../logout.php">יציאה</a>';
       }
       else
       {

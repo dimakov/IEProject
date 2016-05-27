@@ -1,10 +1,8 @@
 library(shiny)
 library(DBI)
 library(RMySQL)
-library(rpart)
-library(MASS)
 
-mydb = dbConnect(MySQL(), user='desk', password='', dbname='ieproj', host='10.0.0.1')
+mydb = dbConnect(MySQL(), user='desk', password='', dbname='ieproj', host='10.0.0.2')
 data2 = dbGetQuery(mydb, "SELECT * FROM students;")
 
 data_glob = NULL
@@ -45,11 +43,6 @@ shinyServer(function(input, output,session) {
       write.csv(data_glob, file)
     }
   )
-  #tr_model<-rpart(Age ~ Country, data=data2[1:4,])
-  #tr_predict <- predict(tr_model, newdata=data2[2,])
-  #output$rpartres <- renderUI({
-  #  str1 <- paste("Prediction is:", data2[1:4,1:ncol(data2)], sep="")
-  #})
 })
 dbDisconnect(mydb)
 

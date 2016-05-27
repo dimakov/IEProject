@@ -32,7 +32,7 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
       {
         echo "".$_SESSION['curruser']." רשום כ ";
         echo '<br>';
-        echo '<a href="../logout.php">יציאה</a>';
+        echo '<a class="btn" href="../logout.php">יציאה</a>';
       }
       else
       {
@@ -85,7 +85,7 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
   else 
   {
     echo '<div class="loggedout">'.$_SESSION['curruser'].' רשום כ </div>';
-    echo '<div id="loggedout_exit"><a href="../logout.php">יציאה</a></div>';
+    echo '<a class="btn_exit" href="../logout.php">יציאה</a>';
   }
   ?>
 </body>

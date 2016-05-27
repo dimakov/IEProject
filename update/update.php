@@ -31,7 +31,7 @@
           {
             echo "".$_SESSION['curruser']." רשום כ ";
             echo '<br>';
-            echo '<a href="../logout.php">יציאה</a>';
+            echo '<a class="btn" href="../logout.php">יציאה</a>';
         }
         else
         {
@@ -56,8 +56,8 @@ if (isset($_SESSION['curruser']))
     <div id="update_main">
       <div id="update_student">
         <form action="<?php $_SERVER['PHP_SELF']?>" method="POST">
-          <input type="number" id="update_ID_search" name="update_ID_search" min="1" placeholder="הכנס מספר זהות" style="text-align: right; padding: 10px; font-size: 24px;">
-          <input type="submit" id="update_ID_search_button" value="עדכון מסד כללי" id="search_stud" class="button" name="stud_search"/>
+          <input type="submit" class="button-0" value="עדכון מסד כללי" id="search_stud" class="button" name="stud_search"/><br>
+          <input type="number" name="update_ID_search" min="1" placeholder="הכנס מספר זהות" style="width: 230px; text-align: right; font-size: 24px;">
       </form>
       <?php
       if (isset($_POST["stud_search"]))
@@ -70,7 +70,7 @@ if (isset($_SESSION['curruser']))
             {                  
               $stud_array = mysql_fetch_array($result);
               echo "<table>";
-              echo "<br><th colspan='31' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
+              echo "<br><th colspan='31' style='text-align:center; font-size: 23px; background-color:blue; color: white;'>נתוני המועמד</th>";
               echo "<tr style='font-weight:bold'><td>ID</td><td>Acceptance Date</td><td>Homeland</td><td>Current Country</td><td>City</td><td>Faculty</td><td>County</td><td>Highschool</td><td>Year of Birth</td><td>Internal bagrut</td></tr>";
 
               echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[2]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td></tr><tr></tr><tr></tr>";
@@ -382,7 +382,7 @@ if (isset($_SESSION['curruser']))
                   <input type="radio" name="learn_dis" value="TRUE"> Yes
                   <input type="radio" name="learn_dis" value="FALSE"> No
                   <br><br>
-                  <input type="submit" id="update_make_update" value="הכנס שינויים" class="button" name="update_make_update"/>
+                  <input type="submit" class="btn" value="הכנס שינויים" class="button" name="update_make_update"/>
               </div>
               <div id="update_third">
                 <div class="update_applic_opts">English test:</div>
@@ -405,7 +405,7 @@ if (isset($_SESSION['curruser']))
                 <div class="update_applic_opts">Sorting test physics grade:</div>
                 <input type="number" name="st_phys">
                 <br><br>
-                <input type="submit" id="update_delete" value="מחק סטודנט" class="button" name="update_delete"/>
+                <input type="submit" class="btn_del" value="מחק סטודנט" name="update_delete"/>
             </div>
             <div id="update_fourth">
                 <div class="update_applic_opts">Sorting test final grade:</div>
@@ -442,7 +442,7 @@ if (isset($_SESSION['curruser']))
 }
 else
 {
-    echo "<h2 style='color: red; margin-left: 20px;'>נא הכנס מספר זהות של סטונט</h2>";
+    echo "<h2 style='color: red; margin-left: 20px;'>נא הכנס מספר זהות של סטודנט</h2>";
 }
 }
 ?>
@@ -878,25 +878,23 @@ if (isset($_POST["update_confirm"]))
 
 <div id="update_pretendents">
     <form id="update_form" action="<?php $_SERVER['PHP_SELF']?>" method="POST">
-      <input type="submit" id="update_preten_button" value="עדכון הצלחת מועמדים" name="update_preten_button" class="button"/>
+      <input type="submit" class="button-0" value="עדכון הצלחת מועמדים" name="update_preten_button"/>
   </form>
   <?php
   if (isset($_POST["update_preten_button"])) 
   {
-      $sql = "SELECT * FROM students WHERE accepted = 0;";
+      $sql = "SELECT * FROM students WHERE Pass_mechina = 0;";
       $result = mysql_query($sql);
       if(mysql_num_rows($result) > 0)
       {                  
         echo "<table>";
-        echo "<br><th colspan='13' style='text-align:center; font-size: 20px; background-color: #4CAF50; color: white;'>נתוני הסטודנט</th>";
-        echo "<tr><td>ID</td><td>Date</td><td>Country</td><td>City</td><td>District</td><td>School</td><td>Grade AR</td><td>Age</td><td>University</td><td>Success</td><td>Applicant</td><td>Student</td></tr>";
+        echo "<br><th colspan='13' style='text-align:center; font-size: 23px; background-color:blue; color: white;'>נתוני המועמדים</th>";
+        echo "<tr style='font-weight:bold'><td>ID</td><td>Acceptance Date</td><td>Current Country</td><td>City</td><td>Homeland</td><td>Highschool</td><td>Y.O.B</td><td>University</td><td>Passed Mechina</td></tr>";
         while ($stud_array = mysql_fetch_array($result))
         {
-          $stud_array[9] ? $stud_array[9]='Yes' : $stud_array[9]='No';
-          $stud_array[10] ? $stud_array[10]='Add' : $stud_array[10]='Remove';
-          $stud_array[11] ? $stud_array[11]='Yes' : $stud_array[11]='No';
-          $stud_array[12] ? $stud_array[12]='Yes' : $stud_array[12]='No';
-          echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[2]."</td><td>".$stud_array[3]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[6]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[9]."</td><td><input type='button' id='change-".$stud_array[0]."' value='".$stud_array[10]."' class='onButton' onclick=FnBookmark(".$stud_array[0].",'Add')></input></td><td>".$stud_array[11]."</td></tr>";
+          $stud_array[23] ? $stud_array[23]='Yes' : $stud_array[23]='No';
+          $stud_array[27] ? $stud_array[27]='No' : $stud_array[27]='Yes';
+          echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[3]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[23]."</td><td><input class='btn_update' type='button' id='change-".$stud_array[0]."' value='".$stud_array[27]."' class='onButton' onclick=FnBookmark(".$stud_array[0].",'Yes')></input></td></tr>";
       }
       echo "</table>";
   }
@@ -915,10 +913,10 @@ if (isset($_POST["update_confirm"]))
     function FnBookmark(id,mode){
           // var temp = '"#' + id + '"';
           var temp = "#change-" + id + "";
-          var temp2 = "FnBookmark("+id+",'Remove')";
-          var temp3 = "FnBookmark("+id+",'Add')";
+          var temp2 = "FnBookmark("+id+",'Undo')";
+          var temp3 = "FnBookmark("+id+",'Yes')";
           var temp4 = 0;
-          if (mode == 'Add')
+          if (mode == 'Yes')
           {
             temp4 = 1;
         } 
@@ -927,14 +925,14 @@ if (isset($_POST["update_confirm"]))
             data:{mode:temp4,id:id},
             dataType:'json',
             error: function(data){
-              if(mode == 'Add')
+              if(mode == 'Yes')
               {
-                $(temp).prop("value","Remove");
+                $(temp).prop("value","Undo");
                 $(temp).attr("onclick",temp2);
             }
             else
             {
-                $(temp).prop("value","Add");
+                $(temp).prop("value","Yes");
                 $(temp).attr("onclick",temp3);
             }
         }

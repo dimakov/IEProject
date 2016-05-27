@@ -24,7 +24,7 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
     {
       echo "".$_SESSION['curruser']." רשום כ ";
       echo '<br>';
-      echo '<a href="../logout.php">יציאה</a>';
+      echo '<a class="btn" href="../logout.php">יציאה</a>';
   }
   else
   {
@@ -246,7 +246,8 @@ if (isset($_POST["submit"]))
     {
         echo "<div style='margin-left:30%; font-size:34px;'>:החיזוי המתקבל להצלחת מועמד</div>";
         echo "<iframe id='newstud_pred_res' src='http://localhost:3838/apps/predres/'></iframe>";
-        echo "<a href='../newstud/newstud.php' style='margin-left:100px; font-size:34px; color: green;'>חזרה להוספת מועמד</a>";
+        echo "<br><br>";
+        echo "<a href='../newstud/newstud.php' style='margin-left:100px; font-size:34px; color: green; margin-left:33%;'>חזרה להוספת מועמד</a>";
         die();
     }
 }
@@ -609,7 +610,7 @@ if (isset($_SESSION['curruser']))
 </form>
 
 <div id="newstud_submit_button">
-  <input style="font-size: 30px;" name="submit" value="הכנס מועמד" type="submit" form="newstud_form">
+  <input style="font-size: 30px; margin-left: 18%;" name="submit" class="btn" value="הכנס מועמד" type="submit" form="newstud_form">
 
 </div>
 </div>
