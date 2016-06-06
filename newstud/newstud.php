@@ -37,7 +37,7 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
     <ul>
       <li><a href="../index.php" >כניסת משתמש</a></li>
       <li><a class="active">הוספת מועמד</a></li>
-      <li><a href="../reports/reports.php" >הפקדת דוח"ות</a></li>
+      <li><a href="../reports/reports.php" >הפקת דוח"ות</a></li>
       <li><a href="../update/update.php" >עדכון מסד נתונים</a></li>
       <li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
   </ul>
@@ -45,38 +45,39 @@ if (!@mysql_select_db('ieproj')) die('Couldn\'t locate the database!');
 <?php
 if (isset($_POST["submit"])) 
 {
-    $id='';
-    $acc_date='';
-    $faculty='';
-    $homeland='';
-    $country='';
-    $city='';
-    $county='';
-    $highschool='';
-    $yob='';
-    $int_bagrut='';
-    $math_11=NULL;
-    $math_12=NULL;
-    $phys_11=NULL;
-    $phys_12=NULL;
-    $learn_dis='';
-    $eng_test='';
-    $eng_grade=NULL;
-    $eng_test_type='';
-    $sort_test='';
-    $st_type='';
-    $st_math=NULL;
-    $st_phys=NULL;
-    $st_final=NULL;
-    $uni='';
-    $int_grade=NULL;
-    $scholarship='';
-    $accepted='';
-    $mechina='';
-    $comments='';
+    $id="NULL";
+    $acc_date="NULL";
+    $faculty="NULL";
+    $homeland="NULL";
+    $country="NULL";
+    $city="NULL";
+    $county="NULL";
+    $highschool="NULL";
+    $yob="NULL";
+    $int_bagrut="NULL";
+    $math_11="NULL";
+    $math_12="NULL";
+    $phys_11="NULL";
+    $phys_12="NULL";
+    $learn_dis="NULL";
+    $eng_test="NULL";
+    $eng_grade="NULL";
+    $eng_test_type="NULL";
+    $sort_test="NULL";
+    $st_type="None";
+    $st_math="NULL";
+    $st_phys="NULL";
+    $st_final="NULL";
+    $uni="NULL";
+    $int_grade="NULL";
+    $scholarship="NULL";
+    $accepted="NULL";
+    $mechina="NULL";
+    $comments="NULL";
+    $checked=0;
 
 
-    if (!isset($_POST["id"]))
+    if (empty($_POST["id"]))
     {
         echo "<h3>No ID entererd. Please enter ID of the student.</h3><br>";
     }
@@ -85,7 +86,7 @@ if (isset($_POST["submit"]))
         $id=$_POST["id"];
     }
 
-    if (!isset($_POST["acc_date"]))
+    if (empty($_POST["acc_date"]))
     {
         echo "<h3>No date entererd. Please enter date.</h3><br>";
     }
@@ -95,17 +96,17 @@ if (isset($_POST["submit"]))
         $acc_date = date('Y-m-d', strtotime($date1));
     } 
 
-    if (isset($_POST["faculty"]))
+    if (!empty($_POST["faculty"]))
     {
         $faculty=$_POST["faculty"];
     }
 
-    if (isset($_POST["homeland"]))
+    if (!empty($_POST["homeland"]))
     {
         $homeland=$_POST["homeland"];
     }
 
-    if (!isset($_POST["country"]))
+    if (empty($_POST["country"]))
     {
         echo "<h3>No country entererd. Please enter country.</h3><br>";
     }
@@ -113,7 +114,7 @@ if (isset($_POST["submit"]))
     {
         $country=$_POST["country"];
     }
-    if (!isset($_POST["city"]))
+    if (empty($_POST["city"]))
     {
         echo "<h3>No city entererd. Please enter city.</h3><br>";
     }
@@ -123,25 +124,17 @@ if (isset($_POST["submit"]))
     }
 
 
-    if (!isset($_POST["county"]))
-    {
-        echo "<h3>No county entererd. Please enter district.</h3><br>";
-    }
-    else
+    if (!empty($_POST["county"]))
     {
         $county=$_POST["county"];
     }
 
-    if (!isset($_POST["highschool"]))
-    {
-        echo "<h3>No highschool entererd. Please enter school.</h3><br>";
-    }
-    else
+    if (!empty($_POST["highschool"]))
     {
         $highschool=$_POST["highschool"];
     }
 
-    if (!isset($_POST["yob"]))
+    if (empty($_POST["yob"]))
     {
         echo "<h3>No yob entererd. Please enter age.</h3><br>";
     }
@@ -150,7 +143,7 @@ if (isset($_POST["submit"]))
         $yob=$_POST["yob"];
     }
 
-    if (!isset($_POST["int_bagrut"]))
+    if (empty($_POST["int_bagrut"]))
     {
         echo "<h3>No int_bagrut entererd. Please enter uni_grade.</h3><br>";
     }
@@ -158,85 +151,85 @@ if (isset($_POST["submit"]))
     {
         $int_bagrut=$_POST["int_bagrut"];
     }
-    if (isset($_POST["math_11"]))
+    if (!empty($_POST["math_11"]))
     {
         $math_11=$_POST["math_11"];
     }
-    if (isset($_POST["math_12"]))
+    if (!empty($_POST["math_12"]))
     {
-        $math_12=$_POST["int_bagrut"];
+        $math_12=$_POST["math_12"];
     }
-    if (isset($_POST["phys_11"]))
+    if (!empty($_POST["phys_11"]))
     {
         $phys_11=$_POST["phys_11"];
     }
-    if (isset($_POST["phys_12"]))
+    if (!empty($_POST["phys_12"]))
     {
         $phys_12=$_POST["phys_12"];
     }
-    if (isset($_POST["learn_dis"]))
+    if (!empty($_POST["learn_dis"]))
     {
         $learn_dis=$_POST["learn_dis"];
     }
-    if (isset($_POST["eng_test"]))
+    if (!empty($_POST["eng_test"]))
     {
         $eng_test=$_POST["eng_test"];
     }
-    if (isset($_POST["eng_grade"]))
+    if (!empty($_POST["eng_grade"]))
     {
         $eng_grade=$_POST["eng_grade"];
     }
-    if (isset($_POST["eng_test_type"]))
+    if (!empty($_POST["eng_test_type"]))
     {
         $eng_test_type=$_POST["eng_test_type"];
     }
-    if (isset($_POST["st_type"]))
+    if (!empty($_POST["st_type"]))
     {
         $st_type=$_POST["st_type"];
     }
-    if (isset($_POST["sort_test"]))
+    if (!empty($_POST["sort_test"]))
     {
         $sort_test=$_POST["sort_test"];
     }  
-    if (isset($_POST["st_math"]))
+    if (!empty($_POST["st_math"]))
     {
         $st_math=$_POST["st_math"];
     }
-    if (isset($_POST["st_phys"]))
+    if (!empty($_POST["st_phys"]))
     {
         $st_phys=$_POST["st_phys"];
     }
-    if (isset($_POST["st_final"]))
+    if (!empty($_POST["st_final"]))
     {
         $st_final=$_POST["st_final"];
     }
-    if (isset($_POST["uni"]))
+    if (!empty($_POST["uni"]))
     {
         $uni=$_POST["uni"];
     }
-    if (isset($_POST["int_grade"]))
+    if (!empty($_POST["int_grade"]))
     {
         $int_grade=$_POST["int_grade"];
     }
-    if (isset($_POST["scholarship"]))
+    if (!empty($_POST["scholarship"]))
     {
         $scholarship=$_POST["scholarship"];
     }
-    if (isset($_POST["accepted"]))
+    if (!empty($_POST["accepted"]))
     {
         $accepted=$_POST["accepted"];
     }
-    if (isset($_POST["mechina"]))
+    if (!empty($_POST["mechina"]))
     {
         $mechina=$_POST["mechina"];
     }
-    if (isset($_POST["comments"]))
+    if (!empty($_POST["comments"]))
     {
         $comments=$_POST["comments"];
     }
 
-    $sql="INSERT INTO students(ID,Acceptance_Date,Faculty,Homeland,Current_Country,City,County,Highschool,Year_Of_Birth,Internal_Bagrut,math_score_11,math_score_12,physics_score_11,physics_score_12,learning_dis,english_test,english_grade,english_test_type,sorting_test,s_t_math_grade,s_t_physics_grade,s_t_final,s_t_type,university,interview_grade,scholarship,accepted,Pass_mechina,comments)
-    VALUES(".$id.",'".$acc_date."','".$faculty."','".$homeland."','".$country."','".$city."','".$county."','".$highschool."',".$yob.",".$int_bagrut.",".$math_11.",".$math_12.",".$phys_11.",".$phys_12.",".$learn_dis.",".$eng_test.",".$eng_grade.",'".$eng_test_type."',".$sort_test.",".$st_math.",".$st_phys.",".$st_final.",'".$st_type."',".$uni.",".$int_grade.",".$scholarship.",".$accepted.",".$mechina.",'".$comments."');";
+    $sql="INSERT INTO students(ID,Acceptance_Date,Faculty,Homeland,Current_Country,City,County,Highschool,Year_Of_Birth,Internal_Bagrut,math_score_11,math_score_12,physics_score_11,physics_score_12,learning_dis,english_test,english_grade,english_test_type,sorting_test,s_t_math_grade,s_t_physics_grade,s_t_final,s_t_type,university,interview_grade,scholarship,accepted,Pass_mechina,comments,checked)
+    VALUES(".$id.",'".$acc_date."','".$faculty."','".$homeland."','".$country."','".$city."','".$county."','".$highschool."',".$yob.",".$int_bagrut.",".$math_11.",".$math_12.",".$phys_11.",".$phys_12.",".$learn_dis.",".$eng_test.",".$eng_grade.",'".$eng_test_type."',".$sort_test.",".$st_math.",".$st_phys.",".$st_final.",'".$st_type."',".$uni.",".$int_grade.",".$scholarship.",".$accepted.",".$mechina.",'".$comments."',".$checked.");";
     $result=mysql_query($sql);
     if (!$result)
     {
@@ -554,11 +547,11 @@ if (isset($_SESSION['curruser']))
 
           <div class="applic_opts">Learning disabilities:</div>
           <input type="radio" name="learn_dis" value="TRUE"> Yes
-          <input type="radio" name="learn_dis" value="FALSE" checked> No
+          <input type="radio" name="learn_dis" value="FALSE"> No
 
           <div class="applic_opts">English test:</div>
           <input type="radio" name="eng_test" value="TRUE"> Yes
-          <input type="radio" name="eng_test" value="FALSE" checked> No
+          <input type="radio" name="eng_test" value="FALSE"> No
 
           <div class="applic_opts">English grade:</div>
           <input type="number" name="eng_grade">
@@ -568,7 +561,7 @@ if (isset($_SESSION['curruser']))
 
           <div class="applic_opts">Sorting test:</div>
           <input type="radio" name="sort_test" value="TRUE"> Yes
-          <input type="radio" name="sort_test" value="FALSE" checked> No
+          <input type="radio" name="sort_test" value="FALSE"> No
           <br><br><br>
       </div>
       <div id="newstud_third_sec">
@@ -587,22 +580,25 @@ if (isset($_SESSION['curruser']))
 
           <div class="applic_opts">University:</div>
           <input type="radio" name="uni" value="TRUE"> Yes
-          <input type="radio" name="uni" value="FALSE" checked> No
+          <input type="radio" name="uni" value="FALSE"> No
 
           <div class="applic_opts">Interview grade:</div>
           <input type="number" name="int_grade">
 
           <div class="applic_opts">Scholarship:</div>
           <input type="radio" name="scholarship" value="TRUE"> Yes
-          <input type="radio" name="scholarship" value="FALSE" checked> No
+          <input type="radio" name="scholarship" value="FALSE"> No
 
           <div class="applic_opts">Accepted:</div>
-          <input type="radio" name="accepted" value="TRUE"> Yes
-          <input type="radio" name="accepted" value="FALSE" checked> No<br>
+          <input type="radio" name="accepted" value="TRUE"> Accepted
+          <input type="radio" name="accepted" value="FALSE"> Declined
+          <input type="radio" name="accepted" value="NULL"> Rejected
+          <input type="radio" name="accepted"> Pending
 
           <div class="applic_opts">Passed mechina:</div>
           <input type="radio" name="mechina" value="TRUE"> Yes
-          <input type="radio" name="mechina" value="FALSE" checked> No<br>
+          <input type="radio" name="mechina" value="FALSE"> No
+          <input type="radio" name="mechina" value="NULL"> Pending<br>
 
           <div class="applic_opts">Comments:</div>
           <input type="text" name="comments">

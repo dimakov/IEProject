@@ -10,7 +10,6 @@ html,
 body
 {
 	  background-image: url(backg.jpg);
-    background-repeat:no-repeat;
     background-size:cover;
     height: 100%;
 }
@@ -193,7 +192,7 @@ tr,td{
 }
 
 #newstud_pred_res{
-  margin-left: 32%;
+  margin-left: 28%;
   margin-top: 100px;
   width: 500px;
   height: 80px;

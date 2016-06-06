@@ -29,5 +29,6 @@ CREATE TABLE students(
 	Pass_mechina BOOLEAN,
 	comments VARCHAR(120),
 	prediction_res FLOAT,
+	checked BOOLEAN,
 	PRIMARY KEY (ID)
 );

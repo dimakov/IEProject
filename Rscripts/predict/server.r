@@ -6,7 +6,7 @@ library(MASS)
 # Define a server for the Shiny app
 shinyServer(function(input, output,session) {
   
-  mydb = dbConnect(MySQL(), user='desk', password='', dbname='ieproj', host='10.0.0.1')
+  mydb = dbConnect(MySQL(), user='desk', password='', dbname='ieproj', host='192.168.13.203')
   data_ = dbGetQuery(mydb, "SELECT * FROM students;")
   pred_glob = NULL
   

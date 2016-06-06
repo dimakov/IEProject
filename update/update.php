@@ -44,7 +44,7 @@
     <ul>
       <li><a href="../index.php" >כניסת משתמש</a></li>
       <li><a href="../newstud/newstud.php" >הוספת מועמד</a></li>
-      <li><a href="../reports/reports.php" >הפקדת דוח"ות</a></li>
+      <li><a href="../reports/reports.php" >הפקת דוח"ות</a></li>
       <li><a class="active" >עדכון מסד נתונים</a></li>
       <li><a href="../newacc/newacc.php" >רישום משתמש חדש</a></li>
   </ul>
@@ -883,7 +883,7 @@ if (isset($_POST["update_confirm"]))
   <?php
   if (isset($_POST["update_preten_button"])) 
   {
-      $sql = "SELECT * FROM students WHERE Pass_mechina = 0;";
+      $sql = "SELECT * FROM students WHERE Pass_mechina IS NULL;";
       $result = mysql_query($sql);
       if(mysql_num_rows($result) > 0)
       {                  
@@ -893,9 +893,8 @@ if (isset($_POST["update_confirm"]))
         while ($stud_array = mysql_fetch_array($result))
         {
           $stud_array[23] ? $stud_array[23]='Yes' : $stud_array[23]='No';
-          $stud_array[27] ? $stud_array[27]='No' : $stud_array[27]='Yes';
-          echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[3]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[23]."</td><td><input class='btn_update' type='button' id='change-".$stud_array[0]."' value='".$stud_array[27]."' class='onButton' onclick=FnBookmark(".$stud_array[0].",'Yes')></input></td></tr>";
-      }
+          echo "<tr><td>".$stud_array[0]."</td><td>".$stud_array[1]."</td><td>".$stud_array[4]."</td><td>".$stud_array[5]."</td><td>".$stud_array[3]."</td><td>".$stud_array[7]."</td><td>".$stud_array[8]."</td><td>".$stud_array[23]."</td><td><input class='btn_update' type='button' id='change-".$stud_array[0]."' value='No' class='onButton' onclick=FnBookmark(".$stud_array[0].",'Yes')></input></td></tr>";
+        }
       echo "</table>";
   }
 }
@@ -913,25 +912,28 @@ if (isset($_POST["update_confirm"]))
     function FnBookmark(id,mode){
           // var temp = '"#' + id + '"';
           var temp = "#change-" + id + "";
-          var temp2 = "FnBookmark("+id+",'Undo')";
+          var temp2 = "FnBookmark("+id+",'No')";
           var temp3 = "FnBookmark("+id+",'Yes')";
-          var temp4 = 0;
+          var temp4 = 1;
           if (mode == 'Yes')
           {
-            temp4 = 1;
+            temp4 = 0;
         } 
         $.ajax({
+            alert("yes");
             url:'../ajax.php',
             data:{mode:temp4,id:id},
             dataType:'json',
             error: function(data){
               if(mode == 'Yes')
               {
-                $(temp).prop("value","Undo");
+                
+                $(temp).prop("value","No");
                 $(temp).attr("onclick",temp2);
             }
             else
             {
+
                 $(temp).prop("value","Yes");
                 $(temp).attr("onclick",temp3);
             }

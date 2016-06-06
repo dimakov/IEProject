@@ -32,7 +32,7 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
       {
         echo "".$_SESSION['curruser']." רשום כ ";
         echo '<br>';
-        echo '<a class="btn" href="../logout.php">יציאה</a>';
+        echo '<a class="btn" href="../logout.php">יציאה</a><br>';
       }
       else
       {
@@ -62,7 +62,7 @@ if (!@mysql_select_db($db)) die('Couldn\'t locate the database!');
     <ul>
       <li><a class="active">כניסת משתמש</a></li>
       <li><a href="newstud/newstud.php" >הוספת מועמד</a></li>
-      <li><a href="reports/reports.php" >הפקדת דוח"ות</a></li>
+      <li><a href="reports/reports.php" >הפקת דוח"ות</a></li>
       <li><a href="update/update.php" >עדכון מסד נתונים</a></li>
       <li><a href="newacc/newacc.php" >רישום משתמש חדש</a></li>
     </ul>
